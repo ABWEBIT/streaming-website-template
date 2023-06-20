@@ -93,46 +93,44 @@ body{
   color:rgb(240,240,240);
   font-family:Inter-Regular,Arial,sans-serif;
 	font-size:16px;
-  background-color:rgb(50,50,50);}
+  background-color:rgb(18,18,18);}
 
 /*** icons ***/
 #icons{display:none;}
 
 /*** app ***/
-#app{
+.app{
   position:relative;
   width:100%;
   box-sizing:border-box;}
 
-/*** combinedPanel ***/
-#combinedPanel{
+.appHeader{
+  box-sizing:border-box;
   position:sticky;
   height:60px;
   width:100%;
-  top:0;
-  left:0;
-  right:0;
   background-color:rgb(30,30,30);}
+
+.appBody{
+  position:relative;}
 
 /*** sidePanels ***/
 .sidePanels{
   box-sizing:border-box;
   position:absolute;
-  top:60px;
+  top:0;
   bottom:0;
   height:calc(100vh - 60px);
-  background-color:rgb(30,30,30);
+  background-color:rgb(25,25,25);
   transition:width 0.2s,min-width 0.2s;
   -webkit-user-select:none;
   user-select:none;}
 
 #channelsPanel{
-  left:0;
-  border-right:1px solid rgb(30,30,30);}
+  left:0;}
 
 #chattingPanel{
-  right:0;
-  border-left:1px solid rgb(30,30,30);}
+  right:0;}
 
 #channelsPanel[data-condition="minimized"]{
   width:60px;
@@ -212,18 +210,8 @@ body{
 #chattingPanel[data-condition="minimized"] .sidePanelsToggleButton svg{
   transform:translate(-50%,-50%) rotate(180deg);}
 
-.sidePanelsHeader,
-.sidePanelsBody,
-.sidePanelsFooter{
-  position:relative;
-  display:block;}
-
-.sidePanelsHeader,
-.sidePanelsFooter{
-  box-sizing:border-box;
-  background-color:rgb(20,20,20);}
-
 .sidePanelsBody{
+  position:relative;
   height:100%;
   overflow-y:auto;
   overflow-x:hidden;
@@ -248,7 +236,7 @@ body{
   height:40px;
   padding-top:5px;
   padding-bottom:5px;
-  background-color:rgba(255,255,255,.06);}
+  background-color:rgb(40,40,40);}
 
 .channelsGroupTitleIcon{
   position:relative;
