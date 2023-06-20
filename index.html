@@ -8,190 +8,189 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<section id="app">
+<section class="app">
+  <section class="appHeader"></section>
 
-  <section id="combinedPanel">
-    <div></div>
-  </section>
+  <section class="appBody">
 
-  <section id="channelsPanel" class="sidePanels" data-condition="maximized">
+    <section id="channelsPanel" class="sidePanels" data-condition="maximized">
 
-    <div class="sidePanelsToggleButton">
-      <svg><use xlink:href="#svgIconToggleButton"/></svg>
-    </div>
+      <div class="sidePanelsToggleButton">
+        <svg><use xlink:href="#svgIconToggleButton"/></svg>
+      </div>
 
-    <div class="sidePanelsBody">
+      <div class="sidePanelsBody">
 
-      <div class="channelsGroup">
+        <div class="channelsGroup">
 
-        <div class="channelsGroupTitle">
-          <div class="channelsGroupTitleIcon">
-            <svg><use xlink:href="#svgIconFavorites"></use></svg>
+          <div class="channelsGroupTitle">
+            <div class="channelsGroupTitleIcon">
+              <svg><use xlink:href="#svgIconFavorites"></use></svg>
+            </div>
+            <div class="channelsGroupTitleText">избранное</div>
           </div>
-          <div class="channelsGroupTitleText">избранное</div>
+
+          <div class="channelsGroupList">
+
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Мойдодыр умывальников начальник</div>
+                <div class="channelsGroupItemTitle">Этот стример думает, что вам интересно смотреть</div>
+                <div class="channelsGroupItemViewers"><span>123,456</span></div>
+              </div>
+            </div>
+
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Колобок</div>
+                <div class="channelsGroupItemTitle">✅ Заголовок трансляции</div>
+                <div class="channelsGroupItemViewers"><span>12,345</span></div>
+              </div>
+            </div>
+
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">СИНЬОР ПОМИДОР</div>
+                <div class="channelsGroupItemTitle">ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ</div>
+                <div class="channelsGroupItemViewers"><span>1,234</span></div>
+              </div>
+            </div>
+
+            <div class="channelsGroupItem" data-condition="offline">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Домовёнок Кузя</div>
+                <div class="channelsGroupItemTitle">Не в сети</div>
+              </div>
+            </div>
+
+            <div class="channelsGroupItem" data-condition="offline">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Кот Леопольд</div>
+                <div class="channelsGroupItemTitle">Не в сети</div>
+              </div>
+            </div>
+
+            <div class="channelsLoadMore">
+              <div class="channelsLoadMoreIcon">
+                <svg><use xlink:href="#svgIconNormalArrow"></use></svg>
+              </div>
+              <div class="channelsLoadMoreTitle">Показать больше</div>
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="channelsGroupList">
+        <div class="channelsGroup">
 
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
+          <div class="channelsGroupTitle" data-condition="maximized">
+            <div class="channelsGroupTitleIcon">
+              <svg><use xlink:href="#svgIconRecommend"></use></svg>
             </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Мойдодыр умывальников начальник</div>
-              <div class="channelsGroupItemTitle">Этот стример думает, что вам интересно смотреть</div>
-              <div class="channelsGroupItemViewers"><span>123,456</span></div>
-            </div>
+            <div class="channelsGroupTitleText">рекомендуемое</div>
           </div>
 
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
-            </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Колобок</div>
-              <div class="channelsGroupItemTitle">✅ Заголовок трансляции</div>
-              <div class="channelsGroupItemViewers"><span>12,345</span></div>
-            </div>
-          </div>
+          <div class="channelsGroupList">
 
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Доктор Айболит</div>
+                <div class="channelsGroupItemTitle">Добрый доктор</div>
+                <div class="channelsGroupItemViewers"><span>123,456</span></div>
+              </div>
             </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">СИНЬОР ПОМИДОР</div>
-              <div class="channelsGroupItemTitle">ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ</div>
-              <div class="channelsGroupItemViewers"><span>1,234</span></div>
-            </div>
-          </div>
 
-          <div class="channelsGroupItem" data-condition="offline">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Дюймовочка</div>
+                <div class="channelsGroupItemTitle">Маленькая и добрая девочка</div>
+                <div class="channelsGroupItemViewers"><span>12,345</span></div>
+              </div>
             </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Домовёнок Кузя</div>
-              <div class="channelsGroupItemTitle">Не в сети</div>
-            </div>
-          </div>
 
-          <div class="channelsGroupItem" data-condition="offline">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Леший</div>
+                <div class="channelsGroupItemTitle">Лесной дух</div>
+                <div class="channelsGroupItemViewers"><span>1,234</span></div>
+              </div>
             </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Кот Леопольд</div>
-              <div class="channelsGroupItemTitle">Не в сети</div>
-            </div>
-          </div>
 
-          <div class="channelsLoadMore">
-            <div class="channelsLoadMoreIcon">
-              <svg><use xlink:href="#svgIconNormalArrow"></use></svg>
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Змей-горыныч</div>
+                <div class="channelsGroupItemTitle">Огнедышащий дракон</div>
+                <div class="channelsGroupItemViewers"><span>123</span></div>
+              </div>
             </div>
-            <div class="channelsLoadMoreTitle">Показать больше</div>
+
+            <div class="channelsGroupItem" data-condition="online">
+              <div class="channelsGroupItemImage">
+                <img src="avatar.png">
+              </div>
+              <div class="channelsGroupItemText">
+                <div class="channelsGroupItemName">Кащей бессмертный</div>
+                <div class="channelsGroupItemTitle">Злой чародей</div>
+                <div class="channelsGroupItemViewers"><span>12</span></div>
+              </div>
+            </div>
+
           </div>
 
         </div>
 
       </div>
 
-      <div class="channelsGroup">
+    </section>
 
-        <div class="channelsGroupTitle" data-condition="maximized">
-          <div class="channelsGroupTitleIcon">
-            <svg><use xlink:href="#svgIconRecommend"></use></svg>
-          </div>
-          <div class="channelsGroupTitleText">рекомендуемое</div>
-        </div>
+    <section id="contentsPanel">
 
-        <div class="channelsGroupList">
-
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
-            </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Доктор Айболит</div>
-              <div class="channelsGroupItemTitle">Добрый доктор</div>
-              <div class="channelsGroupItemViewers"><span>123,456</span></div>
-            </div>
-          </div>
-
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
-            </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Дюймовочка</div>
-              <div class="channelsGroupItemTitle">Маленькая и добрая девочка</div>
-              <div class="channelsGroupItemViewers"><span>12,345</span></div>
-            </div>
-          </div>
-
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
-            </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Леший</div>
-              <div class="channelsGroupItemTitle">Лесной дух</div>
-              <div class="channelsGroupItemViewers"><span>1,234</span></div>
-            </div>
-          </div>
-
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
-            </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Змей-горыныч</div>
-              <div class="channelsGroupItemTitle">Огнедышащий дракон</div>
-              <div class="channelsGroupItemViewers"><span>123</span></div>
-            </div>
-          </div>
-
-          <div class="channelsGroupItem" data-condition="online">
-            <div class="channelsGroupItemImage">
-              <img src="avatar.png">
-            </div>
-            <div class="channelsGroupItemText">
-              <div class="channelsGroupItemName">Кащей бессмертный</div>
-              <div class="channelsGroupItemTitle">Злой чародей</div>
-              <div class="channelsGroupItemViewers"><span>12</span></div>
-            </div>
-          </div>
-
-        </div>
-
+      <div class="middlePanelBlock">
+        <div class="middlePanelHeader"></div>
+        <div class="middlePanelBody"></div>
+        <div class="middlePanelFooter"></div>
       </div>
 
-    </div>
+    </section>
 
-  </section>
+    <section id="chattingPanel" class="sidePanels" data-condition="maximized">
 
-  <section id="chattingPanel" class="sidePanels" data-condition="maximized">
+      <div class="sidePanelsToggleButton">
+        <svg><use xlink:href="#svgIconToggleButton"/></svg>
+      </div>
 
-    <div class="sidePanelsToggleButton">
-      <svg><use xlink:href="#svgIconToggleButton"/></svg>
-    </div>
+      <div class="sidePanelsBlock">
+        <div class="sidePanelsBody"></div>
+      </div>
 
-    <div class="sidePanelsBlock">
-      <div class="sidePanelsHeader"></div>
-      <div class="sidePanelsBody"></div>
-      <div class="sidePanelsFooter"></div>
-    </div>
-
-  </section>
-
-  <section id="contentsPanel">
-
-    <div class="middlePanelBlock">
-      <div class="middlePanelHeader"></div>
-      <div class="middlePanelBody"></div>
-      <div class="middlePanelFooter"></div>
-    </div>
+    </section>
 
   </section>
 
