@@ -1,5 +1,18 @@
 'use strict';
-let sidePanelsToggleButton = document.querySelectorAll('.sidePanelsToggleButton');
+let channelsPanel = document.getElementById('channelsPanel');
+let sidePanelToggleButton = document.querySelectorAll('.sidePanelToggleButton');
+
+if(typeof(Storage) !== 'undefined'){
+  let status = localStorage.getItem('channelsPanelStatus');
+  if(status === null){
+    localStorage.setItem('channelsPanelStatus','maximized');
+    status = localStorage.getItem('channelsPanelStatus');
+    channelsPanel.setAttribute('data-condition',status);
+  }
+  else{
+    channelsPanel.setAttribute('data-condition',status);
+  }
+};
 
 /*
 let app;
@@ -19,11 +32,16 @@ const resizeApp = new ResizeObserver(entries=>{
 resizeApp.observe(app);
 */
 
-sidePanelsToggleButton.forEach(function(el) {
+sidePanelToggleButton.forEach(function(el) {
   el.addEventListener('click',()=>{
     //resizeApp.unobserve(app);
-    if(el.parentElement.dataset.condition === 'minimized') el.parentElement.setAttribute('data-condition','maximized');
-    else el.parentElement.setAttribute('data-condition','minimized');
-
+    if(el.parentElement.dataset.condition === 'minimized'){
+      localStorage.setItem('channelsPanelStatus','maximized');
+      el.parentElement.setAttribute('data-condition','maximized');
+    }
+    else{
+      localStorage.setItem('channelsPanelStatus','minimized');
+      el.parentElement.setAttribute('data-condition','minimized');
+    }
   });
 });
