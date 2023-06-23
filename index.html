@@ -8,18 +8,19 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<section class="app">
-  <section class="appHeader"></section>
+<section id="app">
+  <section id="appHeader"></section>
 
-  <section class="appBody">
+  <section id="appBody">
 
-    <section id="channelsPanel" class="sidePanels" data-condition="maximized">
+    <section id="channelsPanel" class="sidePanel" data-condition="minimized" data-component="channels">
 
-      <div class="sidePanelsToggleButton">
+      <div class="sidePanelToggleButton">
         <svg><use xlink:href="#svgIconToggleButton"/></svg>
       </div>
 
-      <div class="sidePanelsBody">
+
+      <div class="sidePanelBody">
 
         <div class="channelsGroup">
 
@@ -170,24 +171,26 @@
 
     </section>
 
-    <section id="contentsPanel">
 
-      <div class="middlePanelBlock">
-        <div class="middlePanelHeader"></div>
-        <div class="middlePanelBody"></div>
-        <div class="middlePanelFooter"></div>
+    <section id="streamerPanel">
+
+      <div class="streamerPanelBlock">
+        <div class="streamerPanelVideo"></div>
+        <div class="streamerPanelButtons"></div>
+        <div class="streamerPanelInfo"></div>
       </div>
 
     </section>
 
-    <section id="chattingPanel" class="sidePanels" data-condition="maximized">
 
-      <div class="sidePanelsToggleButton">
+    <section id="chattingPanel" class="sidePanel" data-condition="maximized">
+
+      <div class="sidePanelToggleButton">
         <svg><use xlink:href="#svgIconToggleButton"/></svg>
       </div>
 
-      <div class="sidePanelsBlock">
-        <div class="sidePanelsBody"></div>
+      <div class="sidePanelBlock">
+        <div class="sidePanelBody"></div>
       </div>
 
     </section>
@@ -196,62 +199,27 @@
 
 </section>
 
-<svg id="icons" xmlns="http://www.w3.org/2000/svg">
-  <symbol id="iconSearch" viewBox="0 0 16.85 18.42">
+<svg id="svgIcons" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="svgIconSearch" viewBox="0 0 16.85 18.42">
     <circle cx="6.5" cy="8" r="6"/>
     <line x1="16.5" y1="18" x2="10.5" y2="12"/>
     <path d="M5.65,4.02s3.99-.7,4.7,4.35"/>
   </symbol>
-  <symbol id="iconChat" viewBox="0 0 19.28 19">
+  <symbol id="svgIconChat" viewBox="0 0 19.28 19">
     <path d="M14.6,11.21H6.99L2.66,15.48l.26-4.28H1.55c-.58,0-1.05-.46-1.05-1.03V1.55C.5,.98,.97,.52,1.55,.52H14.6c.58,0,1.05,.46,1.05,1.03V10.17c0,.57-.47,1.03-1.05,1.03Z"/>
     <path d="M7.96,14.22h4.33s4.33,4.28,4.33,4.28l-.26-4.28h1.38c.58,0,1.05-.46,1.05-1.03V4.57c0-.57-.47-1.03-1.05-1.03"/>
   </symbol>
-  <symbol id="iconUser" viewBox="0 0 15 18.42">
+  <symbol id="svgIconUser" viewBox="0 0 15 18.42">
     <ellipse cx="7.5" cy="4.75" rx="3.5" ry="4.25"/>
     <path d="M13.62,17.92c.55-.79,.88-1.69,.88-2.66,0-2.03-1.38-3.79-3.42-4.76-.82,.71-2.11,1.17-3.58,1.17s-2.76-.46-3.58-1.17c-2.05,.97-3.42,2.73-3.42,4.76,0,.97,.33,1.87,.88,2.66H13.62Z"/>
   </symbol>
-  <symbol id="iconArticle" viewBox="0 0 19.28 19.72">
-    <rect x="1.29" y=".5" width="12.57" height="16.72" rx=".98" ry=".98"/>
-    <path d="M13.93,2.5h2.3c.62,0,1.12,.5,1.12,1.12v14.48c0,.62-.5,1.12-1.12,1.12H5.91c-.62,0-1.12-.5-1.12-1.12v-1.16"/>
-    <line x1="4.07" y1="4.36" x2="8.07" y2="4.36"/>
-    <line x1="4.07" y1="7.36" x2="11.07" y2="7.36"/>
-    <line x1="4.07" y1="10.36" x2="11.07" y2="10.36"/>
-    <line x1="4.07" y1="13.36" x2="11.07" y2="13.36"/>
-  </symbol>
-  <symbol id="iconMedia" viewBox="0 0 20 20">
-    <rect x=".5" y="2.36" width="19" height="15" rx="1.03" ry="1.03"/>
-    <polygon points="3.5 13.68 5.5 10.3 8 12.55 11.94 7.85 17 13.68 3.5 13.68"/>
-    <circle cx="5.5" cy="6.36" r="1.5"/>
-  </symbol>
-  <symbol id="iconSettings" viewBox="0 0 20 20">
+  <symbol id="svgIconSettings" viewBox="0 0 20 20">
     <line x1="1" y1="3.86" x2="15" y2="3.86"/>
     <circle cx="17" cy="3.86" r="2"/>
     <line x1="19" y1="9.86" x2="5" y2="9.86"/>
     <circle cx="3" cy="9.86" r="2"/>
     <line x1="1" y1="15.86" x2="15" y2="15.86"/>
     <circle cx="17" cy="15.86" r="2"/>
-  </symbol>
-  <symbol id="iconCategory" viewBox="0 0 20 20">
-    <path d="M3.71,9.99V1.67c0-.54,.44-.98,.98-.98H15.3c.54,0,.98,.44,.98,.98V10.04"/>
-    <line x1="6.5" y1="4.54" x2="10.5" y2="4.54"/>
-    <line x1="6.5" y1="7.54" x2="13.5" y2="7.54"/>
-    <rect x=".5" y="10.36" width="19" height="9" rx="1" ry="1"/>
-  </symbol>
-  <symbol id="iconNavigation" viewBox="0 0 20 20">
-    <rect x="1.25" y="6.5" width="7.5" height="12" rx="1" ry="1"/>
-    <line x1="1.25" y1="9.5" x2="8.75" y2="9.5"/>
-    <line x1="1.25" y1="12.5" x2="8.75" y2="12.5"/>
-    <line x1="1.25" y1="15.5" x2="8.75" y2="15.5"/>
-    <rect x="11.25" y="6.5" width="7.5" height="6" rx="1" ry="1"/>
-    <line x1="11.25" y1="9.5" x2="18.75" y2="9.5"/>
-    <rect x=".5" y=".5" width="19" height="3" rx="1" ry="1"/>
-  </symbol>
-
-  <symbol id="iconLetter" viewBox="0 0 20 20">
-    <rect x=".5" y="3.5" width="19" height="13" rx="1" ry="1"/>
-    <polyline points=".5 4.5 10 12 19.52 4.5"/>
-    <line x1=".5" y1="15.26" x2="7.47" y2="10"/>
-    <line x1="19.47" y1="15.26" x2="12.5" y2="10"/>
   </symbol>
 
   <symbol id="svgIconNormalArrow" viewBox="0 0 20 20">
