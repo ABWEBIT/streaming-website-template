@@ -12,14 +12,14 @@ a:focus{
 	-webkit-tap-highlight-color:transparent!important;}
 
 /* remove highlight */
+button:focus,
 input:focus,
 select:focus,
-textarea:focus,
-button:focus{outline:none!important;}
+textarea:focus{outline:none!important;}
 
 /* mozilla form fields padding fix */
-input::-moz-focus-inner,
-button::-moz-focus-inner{
+button::-moz-focus-inner,
+input::-moz-focus-inner{
   padding:0!important;
   border:0!important;}
 
@@ -52,10 +52,11 @@ textarea{
   overflow-y:auto;
   scrollbar-gutter:stable both-edges;
   resize:none;
-  border:1px solid #4a4a4a;
   cursor:auto;
   padding:10px 6px;
-  width:100%;}
+  width:100%;
+  border:1px solid #4a4a4a;
+  border-radius:5px;}
 
 textarea::-webkit-scrollbar-thumb{
   background-color:rgb(115,115,115);}
@@ -78,10 +79,7 @@ embed,
 iframe,
 object{max-width:100%;}
 
-/* border radius */
-textarea,
-video{border-radius:5px;}
-
+/*** html ***/
 html,body{
   position:relative;
   margin:0;
@@ -95,42 +93,40 @@ body{
 	font-size:16px;
   background-color:rgb(18,18,18);}
 
-/*** icons ***/
-#icons{display:none;}
-
 /*** app ***/
-.app{
+#app{
+  box-sizing:border-box;
   position:relative;
-  width:100%;
-  box-sizing:border-box;}
+  width:100%;}
 
-.appHeader{
+#appHeader{
   box-sizing:border-box;
   position:sticky;
   height:60px;
   width:100%;
   background-color:rgb(30,30,30);}
 
-.appBody{
-  position:relative;}
+#appBody{
+  position:relative;
+  display:flex;}
 
-/*** sidePanels ***/
-.sidePanels{
+/*** sidePanel ***/
+.sidePanel{
   box-sizing:border-box;
-  position:absolute;
-  top:0;
-  bottom:0;
+  z-index:1;
+  
   height:calc(100vh - 60px);
   background-color:rgb(25,25,25);
-  transition:width 0.2s,min-width 0.2s;
+ /* transition:width 0.2s,min-width 0.2s;*/
   -webkit-user-select:none;
   user-select:none;}
 
-#channelsPanel{
-  left:0;}
-
-#chattingPanel{
-  right:0;}
+@media screen and (max-width:1280px) {
+  #channelsPanel{
+    position:absolute;
+    top:0;
+    left:0;}
+}
 
 #channelsPanel[data-condition="minimized"]{
   width:60px;
@@ -148,7 +144,7 @@ body{
   width:300px;
   min-width:300px;}
 
-.sidePanelsToggleButton{
+.sidePanelToggleButton{
   box-sizing:border-box;
   position:absolute;
   width:30px;
@@ -161,13 +157,7 @@ body{
   background-color:rgb(30,30,30);
   transition:background-color 0.2s;}
 
-#channelsPanel .sidePanelsToggleButton{
-  transition:left 0.2s;}
-
-#chattingPanel .sidePanelsToggleButton{
-  transition:right 0.2s;}
-
-.sidePanelsToggleButton::before{
+.sidePanelToggleButton::before{
   box-sizing:border-box;
   display:block;
   content:'';
@@ -175,19 +165,19 @@ body{
   height:100%;
   background-color:rgba(255,255,255,.04);}
 
-#channelsPanel[data-condition="minimized"] .sidePanelsToggleButton{
+#channelsPanel[data-condition="minimized"] .sidePanelToggleButton{
   left:70px;}
 
-#channelsPanel[data-condition="maximized"] .sidePanelsToggleButton{
+#channelsPanel[data-condition="maximized"] .sidePanelToggleButton{
   left:290px;}
 
-#chattingPanel[data-condition="minimized"] .sidePanelsToggleButton{
+#chattingPanel[data-condition="minimized"] .sidePanelToggleButton{
   right:10px;}
 
-#chattingPanel[data-condition="maximized"] .sidePanelsToggleButton{
+#chattingPanel[data-condition="maximized"] .sidePanelToggleButton{
   right:310px;}
 
-.sidePanelsToggleButton svg{
+.sidePanelToggleButton svg{
   position:absolute;
   display:block;
   top:50%;
@@ -200,17 +190,17 @@ body{
   fill:none;}
 
 @media (hover: hover){
-  .sidePanelsToggleButton:hover::before{
+  .sidePanelToggleButton:hover::before{
     background-color:rgba(255,255,255,.06);}
 }
 
-#channelsPanel[data-condition="maximized"] .sidePanelsToggleButton svg{
+#channelsPanel[data-condition="maximized"] .sidePanelToggleButton svg{
   transform:translate(-50%,-50%) rotate(180deg);}
 
-#chattingPanel[data-condition="minimized"] .sidePanelsToggleButton svg{
+#chattingPanel[data-condition="minimized"] .sidePanelToggleButton svg{
   transform:translate(-50%,-50%) rotate(180deg);}
 
-.sidePanelsBody{
+.sidePanelBody{
   position:relative;
   height:100%;
   overflow-y:auto;
@@ -219,10 +209,10 @@ body{
   flex-direction:column;
   flex-grow:1;}
 
-#channelsPanel[data-condition="minimized"] .sidePanelsBody::-webkit-scrollbar{width:0px;}
+#channelsPanel[data-condition="minimized"] .sidePanelBody::-webkit-scrollbar{width:0px;}
 
 @-moz-document url-prefix(){
-  .sidePanelsBody{scrollbar-width:thin;}
+  .sidePanelBody{scrollbar-width:thin;}
 }
 
 /* channelsGroup */
@@ -347,7 +337,7 @@ body{
   text-overflow:ellipsis;}
 
 .channelsGroupItemName{
-  width:135px;
+  width:140px;
   line-height:22px;
   font-size:85%;
   color:rgb(220,220,220);}
@@ -363,7 +353,7 @@ body{
   font-size:70%;
   position:absolute;
   top:1px;
-  right:10px;
+  right:8px;
   padding:2px 5px 2px 15px;
   background-color:rgba(255,255,255,.08);}
 
@@ -424,27 +414,60 @@ body{
   overflow:hidden;}
 
 
+/*** streamerPanel ****/
+#streamerPanel{
+  height:calc(100vh - 60px);
+  z-index:0;
+  flex-grow:1;}
 
+@media screen and (max-width:1280px) {
+  #streamerPanel{padding-left:60px;}
+}
 
+.streamerPanelBlock{
+  box-sizing:border-box;
+  position:relative;
+  overflow-x:hidden;
+  overflow-y:scroll;
+  height:100%;}
 
+.streamerPanelBlock::-webkit-scrollbar{width:0px;}
 
+.streamerPanelVideo{
+  box-sizing:border-box;
+  position:relative;
+  width:100%;
+  max-height:calc(100vh - 60px);
+  aspect-ratio:16/9;
+  background-color:rgba(255,255,255,.01);}
 
+.streamerPanelVideo video{
+  width:100%;
+  height:100%;}
 
+.streamerPanelButtons{
+  box-sizing:border-box;
+  display:block;
+  width:100%;
+  padding:5px;}
 
 /*** buttons ***/
 .button{
+  border-radius:5px;
   box-sizing:border-box;
   position:relative;
-  display:flex;
+  display:inline-flex;
   height:40px;
-  width:100%;
+  width:auto;
   border:0;
   white-space:nowrap;
   cursor:pointer;
   color:rgb(150,150,150);
+  background-color:rgba(255,255,255,.06);
   transition:background-color 0.2s;}
 
 .buttonText{
+  padding-right:15px;
   font-size:90%;
   flex-grow:1;
   line-height:40px;}
@@ -452,10 +475,10 @@ body{
 .buttonIcon{
   box-sizing:border-box;
   position:relative;
-  width:60px;
   height:inherit;
-  min-width:60px;
-  max-width:60px;}
+  width:44px;
+  min-width:44px;
+  max-width:44px;}
 
 .buttonIcon svg{
   position:absolute;
@@ -463,25 +486,23 @@ body{
   top:50%;
   left:50%;
   transform:translate(-50%,-50%) rotate(0deg);
-  width:20px;
-  height:20px;
-  stroke-width:1.5;
+  width:24px;
+  height:24px;
+  stroke-width:0.75;
   stroke:rgb(200,200,200);
   fill:none;
   stroke-linecap:round;
   stroke-linejoin:round;}
 
-
 @media (hover: hover){
-  .button:hover{background-color:rgba(255,255,255,.02);}
+  .button:hover{background-color:rgba(255,255,255,.04);}
 }
 
-#channelsPanel[data-condition="maximized"] .button svg{
-  transform:translate(-50%,-50%) rotate(180deg);}
+/*** icons ***/
+#svgIcons{display:none;}
 
 
-
-/* animation */
+/*** animation ***/
 @keyframes fadeIn{
   0%{opacity:0;}
   100%{opacity:1;}
