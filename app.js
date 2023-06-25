@@ -34,6 +34,11 @@ resizeApp.observe(app);
 
 sidePanelToggleButton.forEach(function(el) {
   el.addEventListener('click',()=>{
+
+    if(!el.parentElement.classList.contains('animated')){
+      el.parentElement.classList.add('animated');
+    };
+
     //resizeApp.unobserve(app);
     if(el.parentElement.dataset.condition === 'minimized'){
       localStorage.setItem('channelsPanelStatus','maximized');
