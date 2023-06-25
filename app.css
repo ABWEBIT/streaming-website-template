@@ -114,12 +114,12 @@ body{
 .sidePanel{
   box-sizing:border-box;
   z-index:1;
-  
   height:calc(100vh - 60px);
   background-color:rgb(25,25,25);
- /* transition:width 0.2s,min-width 0.2s;*/
   -webkit-user-select:none;
   user-select:none;}
+
+.sidePanel.animated{transition:width 0.2s,min-width 0.2s;}
 
 @media screen and (max-width:1280px) {
   #channelsPanel{
@@ -177,6 +177,9 @@ body{
 #chattingPanel[data-condition="maximized"] .sidePanelToggleButton{
   right:310px;}
 
+.sidePanel.animated .sidePanelToggleButton{
+  transition:left 0.2s;}
+
 .sidePanelToggleButton svg{
   position:absolute;
   display:block;
@@ -200,7 +203,9 @@ body{
 #chattingPanel[data-condition="minimized"] .sidePanelToggleButton svg{
   transform:translate(-50%,-50%) rotate(180deg);}
 
-.sidePanelBody{
+.channelsBody{
+  padding-left:5px;
+  padding-right:5px;
   position:relative;
   height:100%;
   overflow-y:auto;
@@ -209,10 +214,10 @@ body{
   flex-direction:column;
   flex-grow:1;}
 
-#channelsPanel[data-condition="minimized"] .sidePanelBody::-webkit-scrollbar{width:0px;}
+#channelsPanel[data-condition="minimized"] .channelsBody::-webkit-scrollbar{width:0px;}
 
 @-moz-document url-prefix(){
-  .sidePanelBody{scrollbar-width:thin;}
+  .channelsBody{scrollbar-width:thin;}
 }
 
 /* channelsGroup */
@@ -224,18 +229,19 @@ body{
   position:relative;
   display:flex;
   height:40px;
+  border-radius:5px;
   padding-top:5px;
-  padding-bottom:5px;
-  background-color:rgb(40,40,40);}
+  padding-bottom:5px;}
 
 .channelsGroupTitleIcon{
   position:relative;
   box-sizing:border-box;
   height:100%;
-  width:60px;
-  min-width:60px;}
+  width:50px;
+  min-width:50px;}
 
 .channelsGroupTitleText{
+  margin-left:10px;
   color:rgb(220,220,220);
   letter-spacing:1px;
   text-transform:uppercase;
@@ -275,6 +281,7 @@ body{
   display:flex;
   position:relative;
   width:100%;
+  border-radius:5px;
   padding-top:5px;
   padding-bottom:5px;
   transition:background-color 0.2s;}
@@ -284,7 +291,7 @@ body{
   transition:opacity 0.2s;}
 
 @media (hover: hover){
-  .channelsGroupItem:hover{background-color:rgba(255,255,255,.04);}
+  .channelsGroupItem:hover{background-color:rgba(255,255,255,.06);}
   .channelsGroupItem[data-condition="offline"]:hover{opacity:1;}
 }
 
@@ -292,8 +299,8 @@ body{
   box-sizing:border-box;
   display:block;
   position:relative;
-  width:60px;
-  min-width:60px;
+  width:50px;
+  min-width:50px;
   height:40px;}
 
 .channelsGroupItemImage::after{
@@ -326,6 +333,7 @@ body{
 }
 
 .channelsGroupItemText{
+  margin-left:10px;
   flex-grow:1;
   position:relative;}
 
@@ -337,14 +345,15 @@ body{
   text-overflow:ellipsis;}
 
 .channelsGroupItemName{
-  width:140px;
+  width:130px;
   line-height:22px;
   font-size:85%;
   color:rgb(220,220,220);}
 
 .channelsGroupItemTitle{
   line-height:18px;
-  width:210px;
+  margin-right:5px;
+  width:205px;
   font-size:75%;
   color:rgb(125,125,125);}
 
@@ -353,7 +362,7 @@ body{
   font-size:70%;
   position:absolute;
   top:1px;
-  right:8px;
+  right:10px;
   padding:2px 5px 2px 15px;
   background-color:rgba(255,255,255,.08);}
 
@@ -372,6 +381,7 @@ body{
 /*** loadMore ***/
 .channelsLoadMore{
   margin-top:5px;
+  border-radius:5px;
   cursor:pointer;
   position:relative;
   display:flex;
@@ -386,8 +396,8 @@ body{
   position:relative;
   box-sizing:border-box;
   height:100%;
-  width:60px;
-  min-width:60px;}
+  width:50px;
+  min-width:50px;}
 
 .channelsLoadMoreIcon svg{
   position:absolute;
@@ -405,6 +415,7 @@ body{
   stroke-linejoin:none;}
 
 .channelsLoadMoreTitle{
+  margin-left:10px;
   color:rgb(200,200,200);
   font-size:80%;
   flex-grow:1;
