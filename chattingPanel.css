@@ -1,0 +1,21 @@
+#chattingPanel{
+  z-index:2;}
+
+#chattingPanel[data-state="closed"]{
+  width:0px;
+  min-width:0px;}
+
+#chattingPanel[data-state="opened"]{
+  width:300px;
+  min-width:300px;}
+
+#chattingPanel[data-state="closed"] .panelToggle{
+  right:10px;}
+
+#chattingPanel[data-state="opened"] .panelToggle{
+  right:310px;}
+
+#chattingPanel.animated .panelToggle{transition:right 0.2s;}
+
+#chattingPanel[data-state="closed"] .panelToggle svg{
+  transform:translate3d(-50%,-50%,0) rotate(180deg);}
