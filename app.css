@@ -23,51 +23,34 @@ input::-moz-focus-inner{
   padding:0!important;
   border:0!important;}
 
-/* text selection */
-::selection{background-color:rgba(0,0,0,.1);}
+/* выделение текста */
+::selection{background-color:rgba(255,255,255,0.1);}
 
-/* scrollbar */
+.disableSelection{
+  -webkit-user-select:none;
+  user-select:none;}
+
+/* полоса прокрутки */
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background-color:transparent;}
 ::-webkit-scrollbar-thumb{
   border-radius:5px;
-  background-color:rgba(75,75,75,1);}
+  background-color:rgb(75,75,75);}
 
-/* forms */
+/* формы */
 input,
 select,
 textarea{
   font-family:Inter-Regular,Arial,sans-serif;
-  font-size:90%;
-  color:rgb(240,240,240);
+  font-size:85%;
+  color:rgb(220,220,220);
 	text-transform:none;
 	box-sizing:border-box;}
 
+/* удаление пространства под textarea */
+textarea{vertical-align:top;}
+
 input[type="hidden"]{display:none;}
-
-textarea{
-  background-color:transparent;
-  overflow-wrap:break-word;
-  overflow-x:hidden;
-  overflow-y:auto;
-  scrollbar-gutter:stable both-edges;
-  resize:none;
-  cursor:auto;
-  padding:10px 6px;
-  width:100%;
-  border:1px solid #4a4a4a;
-  border-radius:5px;}
-
-textarea::-webkit-scrollbar-thumb{
-  background-color:rgb(115,115,115);}
-
-/* text */
-h1{font-size:135%;}
-h2{font-size:125%;}
-h3{font-size:115%;}
-h4{font-size:110%;}
-h5{font-size:105%;}
-h6{font-size:100%;}
 
 /* video, embed, iframe, object */
 video{
@@ -103,7 +86,7 @@ header{
   box-sizing:border-box;
   height:60px;
   width:100%;
-  background-color:rgb(30,30,30);}
+  background-color:rgb(25,25,25);}
 
 main{
   position:relative;
@@ -137,61 +120,47 @@ main{
 }
 
 .panelToggle svg{
-  position:absolute;
-  display:block;
-  top:50%;
-  left:50%;
-  transform:translate3d(-50%,-50%,0) rotate(0deg);
-  width:20px;
-  height:20px;
-  stroke-width:1.5;
-  stroke:rgb(200,200,200);
-  fill:none;}
+  stroke-width:1.5!important;
+  stroke:rgb(200,200,200);}
 
 /*** buttons ***/
 .button{
-  border-radius:5px;
   box-sizing:border-box;
   position:relative;
   display:inline-flex;
-  height:40px;
-  width:auto;
+  border-radius:5px;
   border:0;
   white-space:nowrap;
   cursor:pointer;
   color:rgb(150,150,150);
-  background-color:rgba(255,255,255,.06);
+  background-color:rgb(40,40,40);
   transition:background-color 0.2s;}
 
 @media (hover: hover){
-  .button:hover{background-color:rgba(255,255,255,.04);}
+  .button:hover{background-color:rgb(45,45,45);}
 }
-
-.buttonText{
-  padding-right:15px;
-  font-size:90%;
-  flex-grow:1;
-  line-height:40px;}
 
 .buttonIcon{
   box-sizing:border-box;
   position:relative;
   height:inherit;
-  width:44px;
-  min-width:44px;
-  max-width:44px;}
+  width:inherit;
+  min-width:30px;}
 
 .buttonIcon svg{
+  width:20px;
+  height:20px;
   position:absolute;
   display:block;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%) rotate(0deg);
-  width:24px;
-  height:24px;
-  stroke-width:0.75;
+  transform:translate3d(-50%,-50%,0) rotate(0deg);
+
   stroke:rgb(200,200,200);
   fill:none;}
+
+.buttonText{
+  flex-grow:1;}
 
 svg{
   stroke-linecap:butt;
