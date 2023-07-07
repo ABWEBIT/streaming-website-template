@@ -16,10 +16,14 @@
 
   <main>
 
-    <section id="channelsPanel" class="panel" data-state="closed">
+    <section id="channelsPanel" class="panel disableSelection" data-state="closed">
 
       <div class="panelToggle">
-        <svg><use xlink:href="#svgIconToggleButton"/></svg>
+        <div class="button">
+          <div class="buttonIcon">
+            <svg><use xlink:href="#svgIconToggleButton"/></svg>
+          </div>
+        </div>
       </div>
 
       <div class="channelsBody">
@@ -59,6 +63,10 @@
 
       </div>
 
+      <div class="channelsFooter">
+
+      </div>
+
     </section>
 
 
@@ -77,8 +85,87 @@
     <section id="chattingPanel" class="panel" data-state="closed">
 
       <div class="panelToggle">
-        <svg><use xlink:href="#svgIconToggleButton"/></svg>
+        <div class="button">
+          <div class="buttonIcon">
+            <svg><use xlink:href="#svgIconToggleButton"/></svg>
+          </div>
+        </div>
       </div>
+
+      <div class="panelHeader">
+        <div class="chattingSystem">
+          <div class="chattingPoints">
+            <div class="button">
+              <div class="buttonIcon">
+                <svg><use xlink:href="#svgIconEye"/></svg>
+              </div>
+              <div class="buttonText">123,456</div>
+            </div>
+          </div>
+          <div class="chattingButtons">
+            <div class="button">
+              <div class="buttonIcon">
+                <svg><use xlink:href="#svgIconAt"/></svg>
+              </div>
+            </div>
+            <div class="button">
+              <div class="buttonIcon">
+                <svg><use xlink:href="#svgIconChat"/></svg>
+              </div>
+            </div>
+            <div class="button">
+              <div class="buttonIcon">
+                <svg><use xlink:href="#svgIconUsers"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panelBody">
+
+      </div>
+
+
+
+
+      <div class="panelFooter disableSelection">
+
+        <div class="chattingStatus">
+        
+        </div>
+
+        <div class="chattingTextarea">
+          <textarea id="chat" rows="1" cols="1" placeholder="Написать сообщение"></textarea>
+        </div>
+
+        <div class="chattingSystem">
+          <div class="chattingPoints">
+            <div class="button">
+              <div class="buttonIcon">
+                <svg><use xlink:href="#svgIconPoints"/></svg>
+              </div>
+              <div class="buttonText">123,456,789</div>
+            </div>
+          </div>
+          <div class="chattingButtons">
+            <div class="button">
+              <div class="buttonIcon">
+                <svg><use xlink:href="#svgIconGear"/></svg>
+              </div>
+            </div>
+            <div class="button">
+              <div class="buttonIcon">
+                <svg><use xlink:href="#svgIconSend"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
 
     </section>
 
@@ -93,14 +180,28 @@
     <line x1="16.5" y1="18" x2="10.5" y2="12"/>
     <path d="M5.65,4.02s3.99-.7,4.7,4.35"/>
   </symbol>
-  <symbol id="svgIconChat" viewBox="0 0 19.28 19">
-    <path d="M14.6,11.21H6.99L2.66,15.48l.26-4.28H1.55c-.58,0-1.05-.46-1.05-1.03V1.55C.5,.98,.97,.52,1.55,.52H14.6c.58,0,1.05,.46,1.05,1.03V10.17c0,.57-.47,1.03-1.05,1.03Z"/>
-    <path d="M7.96,14.22h4.33s4.33,4.28,4.33,4.28l-.26-4.28h1.38c.58,0,1.05-.46,1.05-1.03V4.57c0-.57-.47-1.03-1.05-1.03"/>
+
+  <symbol id="svgIconUser" viewBox="0 0 20 20">
+    <ellipse cx="10" cy="5.29" rx="3.5" ry="4.25"/>
+    <path d="M16.12,18.46c.55-.79,.88-1.69,.88-2.66,0-2.03-1.38-3.79-3.42-4.76-.82,.71-2.11,1.17-3.58,1.17s-2.76-.46-3.58-1.17c-2.05,.97-3.42,2.73-3.42,4.76,0,.97,.33,1.87,.88,2.66h12.25Z"/>
   </symbol>
-  <symbol id="svgIconUser" viewBox="0 0 15 18.42">
-    <ellipse cx="7.5" cy="4.75" rx="3.5" ry="4.25"/>
-    <path d="M13.62,17.92c.55-.79,.88-1.69,.88-2.66,0-2.03-1.38-3.79-3.42-4.76-.82,.71-2.11,1.17-3.58,1.17s-2.76-.46-3.58-1.17c-2.05,.97-3.42,2.73-3.42,4.76,0,.97,.33,1.87,.88,2.66H13.62Z"/>
+
+
+
+
+  <symbol id="svgIconUsers" viewBox="0 0 20 20">
+    <ellipse cx="9" cy="5.29" rx="3.5" ry="4.25"/>
+    <path d="M15.12,18.46c.55-.79,.88-1.69,.88-2.66,0-2.03-1.38-3.79-3.42-4.76-.82,.71-2.11,1.17-3.58,1.17s-2.76-.46-3.58-1.17c-2.05,.97-3.42,2.73-3.42,4.76,0,.97,.33,1.87,.88,2.66H15.12Z"/>
+    <path d="M13.01,1.08c.14-.02,.28-.03,.42-.03"/>
+    <path d="M12.43,1.04c1.78,0,3.21,1.75,3.21,3.9,0,1.97-1.2,3.6-2.76,3.87"/>
+    <path d="M18.05,17.04c.5-.73,.81-1.55,.81-2.44,0-1.86-1.26-3.48-3.14-4.37"/>
   </symbol>
+
+
+
+
+
+
   <symbol id="svgIconSettings" viewBox="0 0 20 20">
     <line x1="1" y1="3.86" x2="15" y2="3.86"/>
     <circle cx="17" cy="3.86" r="2"/>
@@ -110,12 +211,36 @@
     <circle cx="17" cy="15.86" r="2"/>
   </symbol>
 
+<symbol id="svgIconAt" viewBox="0 0 20 20" style="stroke-width:1.25px;">
+  <circle cx="10" cy="10.04" r="3"/>
+  <path d="M13.2,17.38c-.98,.43-2.06,.67-3.2,.67-4.42,0-8-3.58-8-8S5.58,2.04,10,2.04s8,3.58,8,8c-.5,4.5-3.5,4.5-5.5,2.5"/>
+</symbol>
+
+  <symbol id="svgIconSend" viewBox="0 0 20 20" style="stroke-width:1.25px;">
+    <polygon points="3 2 18 10 3 18 8 10 3 2"/>
+  </symbol>
+
   <symbol id="svgIconNormalArrow" viewBox="0 0 20 20">
     <polyline points="4 2 15 10 4 18"/>
   </symbol>
 
   <symbol id="svgIconSmallArrow" viewBox="0 0 20 20">
     <polyline points="8 7 12 10 8 13"/>
+  </symbol>
+
+  <symbol id="svgIconEye" viewBox="0 0 20 20" style="stroke-width:1.25px;">
+    <path d="M19,10c-2.5,2.5-4.03,6-9,6S3.5,12.5,1,10c2.5-2.5,4.03-6,9-6s6.5,3.5,9,6Z"/>
+    <circle cx="10" cy="10" r="3"/>
+  </symbol>
+
+  <symbol id="svgIconChat" viewBox="0 0 20 20" style="stroke-width:1.25px;">
+    <path d="M14.37,11.53H7.77l-3.75,3.71,.23-3.71h-1.2c-.5,0-.91-.4-.91-.9V3.15c0-.5,.41-.9,.91-.9H14.37c.5,0,.91,.4,.91,.9v7.48c0,.5-.41,.9-.91,.9Z"/>
+    <path d="M8.61,14.13h3.75s3.75,3.71,3.75,3.71l-.23-3.71h1.2c.5,0,.91-.4,.91-.9V5.75c0-.5-.41-.9-.91-.9"/>
+  </symbol>
+
+  <symbol id="svgIconGear" viewBox="0 0 20 20" style="stroke-width:0.75px;">
+    <path d="M16.76,8.03c-.14-.49-.34-.96-.59-1.41l1.27-1.26-2.79-2.79-1.26,1.27c-.45-.25-.92-.44-1.41-.59V1.45h-3.95v1.79c-.49,.14-.96,.34-1.41,.59l-1.26-1.27-2.79,2.79,1.27,1.26c-.25,.45-.44,.92-.59,1.41H1.45v3.95h1.79c.14,.49,.34,.96,.59,1.41l-1.27,1.26,2.79,2.79,1.26-1.27c.45,.25,.92,.44,1.41,.59v1.79h3.95v-1.79c.49-.14,.96-.34,1.41-.59l1.26,1.27,2.79-2.79-1.27-1.26c.25-.45,.44-.92,.59-1.41h1.79v-3.95h-1.79Zm1.23,3.38h-1.66l-.05,.21c-.15,.58-.38,1.14-.69,1.67l-.11,.19,1.18,1.17-1.99,1.99-1.17-1.18-.19,.11c-.52,.31-1.08,.54-1.67,.69l-.21,.05v1.66h-2.82v-1.66l-.21-.05c-.58-.15-1.14-.38-1.67-.69l-.19-.11-1.17,1.18-1.99-1.99,1.18-1.17-.11-.19c-.31-.52-.54-1.08-.69-1.67l-.05-.21h-1.66v-2.82h1.66l.05-.21c.15-.58,.38-1.14,.69-1.67l.11-.19-1.18-1.17,1.99-1.99,1.17,1.18,.19-.11c.52-.31,1.08-.54,1.67-.69l.21-.05v-1.66h2.82v1.66l.21,.05c.58,.15,1.14,.38,1.67,.69l.19,.11,1.17-1.18,1.99,1.99-1.18,1.17,.11,.19c.31,.52,.54,1.08,.69,1.67l.05,.21h1.66v2.82h0Z"/>
+    <path d="M10,6.52c-1.92,0-3.48,1.56-3.48,3.48s1.56,3.48,3.48,3.48,3.48-1.56,3.48-3.48-1.56-3.48-3.48-3.48Zm0,6.39c-1.61,0-2.91-1.31-2.91-2.91s1.31-2.91,2.91-2.91,2.91,1.31,2.91,2.91-1.31,2.91-2.91,2.91Z"/>
   </symbol>
 
   <symbol id="svgIconFavorites" viewBox="0 0 20 20">
@@ -131,6 +256,11 @@
     <polyline points="10 4 16 10 10 16"/>
     <line x1="15.5" y1="10" x2="5.5" y2="10"/>
     <line x1="4" y1="16.5" x2="4" y2="3.5"/>
+  </symbol>
+
+  <symbol id="svgIconPoints" viewBox="0 0 20 20" style="stroke-width:1.25px;">
+    <circle cx="10" cy="10" r="8"/>
+    <rect x="6.98" y="6.98" width="6.03" height="6.03" transform="translate(10 -4.14) rotate(45)"/>
   </symbol>
 
 </svg>
