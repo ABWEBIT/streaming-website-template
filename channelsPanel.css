@@ -1,7 +1,4 @@
-#channelsPanel{
-  z-index:1;
-  -webkit-user-select:none;
-  user-select:none;}
+#channelsPanel{z-index:1;}
 
 @media screen and (max-width:1280px) {
   #channelsPanel{
@@ -18,12 +15,8 @@
   width:280px;
   min-width:280px;}
 
-#channelsPanel[data-state="closed"] .panelToggle{
-  left:70px;}
-
-#channelsPanel[data-state="opened"] .panelToggle{
-  left:290px;}
-
+#channelsPanel[data-state="closed"] .panelToggle{left:70px;}
+#channelsPanel[data-state="opened"] .panelToggle{left:290px;}
 #channelsPanel.animated .panelToggle{transition:left 0.2s;}
 
 #channelsPanel[data-state="opened"] .panelToggle svg{
@@ -40,15 +33,18 @@
   flex-direction:column;
   flex-grow:1;}
 
-#channelsPanel[data-state="closed"] .channelsBody::-webkit-scrollbar{width:0px;}
-
 @-moz-document url-prefix(){
   .channelsBody{scrollbar-width:thin;}
 }
 
+#channelsPanel[data-state="closed"] .channelsBody::-webkit-scrollbar{width:0px;}
+/*
+#channelsPanel[data-state="closed"] .channelsBody:hover::-webkit-scrollbar{width:3px;}
+*/
 .channelsGroup{
   margin-bottom:10px;
-  position:relative;}
+  position:relative;
+  transition:height 0.2s;}
 
 .channelsGroup a{
   color:rgb(220,220,220);
@@ -107,6 +103,7 @@
   display:flex;
   position:relative;
   width:100%;
+  min-width:50px;
   border-radius:5px;
   padding-top:5px;
   padding-bottom:5px;
