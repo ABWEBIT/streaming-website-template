@@ -103,6 +103,19 @@
 }
 .channel:active{background-color:rgb(50,50,50);}
 
+#channelPopup{
+  z-index:999;
+  position:absolute;
+  display:flex;
+  border-radius:5px;
+  border:1px solid rgb(50,50,50);
+  top:120px;
+  left:70px;
+  width:220px;
+  height:50px;
+  padding:5px 0;
+  background-color:rgb(35,35,35);}
+
 .channelImage{
   display:block;
   position:relative;
@@ -216,15 +229,3 @@
 @media (hover: hover){
   .channelsToggle:hover .buttonText{color:rgb(220,220,220);}
 }
-
-#channelsPopup{
-  z-index:999;
-  position:absolute;
-  border-radius:5px;
-  border:1px solid rgb(50,50,50);
-  top:120px;
-  left:70px;
-  width:220px;
-  height:50px;
-  padding:5px 0;
-  background-color:rgb(35,35,35);}
