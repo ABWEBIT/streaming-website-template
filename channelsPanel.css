@@ -184,7 +184,9 @@
   font-size:70%;}
 
 /* кнопки */
-.panelToggle .button{width:30px;}
+.panelToggle .button{
+  height:30px;
+  width:30px;}
 
 .channelsToggle .button{
   width:100%;
