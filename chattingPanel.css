@@ -4,12 +4,10 @@
   z-index:2;}
 
 #chattingPanel[data-state="closed"]{
-  width:0px;
-  min-width:0px;}
+  width:0px;}
 
 #chattingPanel[data-state="opened"]{
-  width:300px;
-  min-width:300px;}
+  width:300px;}
 
 #chattingPanel[data-state="closed"] .panelToggle{
   right:10px;}
@@ -23,52 +21,30 @@
   transform:translate3d(-50%,-50%,0) rotate(180deg);}
 
 /* блоки панели */
-.panelHeader,
-.panelFooter{
-  background-color:rgb(32,32,32);}
-
-.panelHeader{
-  box-sizing:border-box;
-  width:100%;}
-
-.panelBody{
-  padding-left:5px;
-  padding-right:5px;
-  position:relative;
-  overflow-y:auto;
-  overflow-x:hidden;
-  display:flex;
-  flex-direction:column;
-  flex-grow:1;}
-
-.panelFooter{
-  box-sizing:border-box;
-  width:100%;}
-
 .chattingTextarea{
-  padding:10px 10px 0 10px;
-}
+  padding:10px 10px 0 10px;}
 
 .chattingSystem{
-  box-sizing:border-box;
   display:flex;
   column-gap:10px;
   padding:10px;
   height:50px;}
 
-.chattingSystem .button{
-  height:30px;}
+.chattingSystem .button{height:30px;}
 
 .chattingSystem .buttonText{
   font-size:90%;
   padding-right:5px;
   line-height:30px;}
 
-.chattingButtons .button{
-  width:30px;}
+.chattingPoints .button{
+  display:inline-flex;
+  width: auto;
+  min-width:auto;}
 
-.chattingPoints{
-  flex-grow:1;}
+.chattingSystem .buttonIcon{width:30px;}
+
+.chattingData{flex-grow:1;}
 
 .chattingButtons{
   display:flex;
@@ -86,3 +62,16 @@
   border-radius:5px;
   padding:10px 5px;
   width:100%;}
+
+/* чат */
+#chat{
+  -webkit-user-select:text;
+  user-select:text;
+  padding:0 5px;}
+
+.message{padding:5px 0;}
+
+.messageText{
+  text-align:center;
+  font-size:80%;
+  color:rgb(100,100,100);}
