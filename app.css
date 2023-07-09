@@ -2,22 +2,16 @@
   font-family:Inter-Regular;
   src:url(fonts/Inter-Regular.ttf);}
 
-/* tap-highlight - remove android webkit tap highlight */
-button,
-a:hover,
-a:active,
-a:focus{
-  outline:none!important;
+/* удаление лишней окантовки и эффекта нажатия */
+*,
+*:after,
+*:before{
 	-webkit-tap-highlight-color:rgba(0,0,0,0)!important;
-	-webkit-tap-highlight-color:transparent!important;}
+	-webkit-tap-highlight-color:transparent!important;
+  box-sizing:border-box!important;
+  outline:none!important;}
 
-/* remove highlight */
-button:focus,
-input:focus,
-select:focus,
-textarea:focus{outline:none!important;}
-
-/* mozilla form fields padding fix */
+/* удаление лишнего пространства у кнопок и полей для ввода в firefox */
 button::-moz-focus-inner,
 input::-moz-focus-inner{
   padding:0!important;
@@ -44,8 +38,7 @@ textarea{
   font-family:Inter-Regular,Arial,sans-serif;
   font-size:85%;
   color:rgb(220,220,220);
-	text-transform:none;
-	box-sizing:border-box;}
+	text-transform:none;}
 
 /* удаление пространства под textarea */
 textarea{vertical-align:top;}
@@ -62,7 +55,7 @@ embed,
 iframe,
 object{max-width:100%;}
 
-/*** html ***/
+/*** общие настройки ***/
 html,body{
   position:relative;
   margin:0;
@@ -71,39 +64,54 @@ html,body{
   overflow:hidden;}
 
 body{
-  color:rgb(240,240,240);
+  color:rgb(220,220,220);
   font-family:Inter-Regular,Arial,sans-serif;
 	font-size:16px;
   background-color:rgb(18,18,18);}
 
-/*** app ***/
+/*** приложение ***/
 #app{
-  box-sizing:border-box;
   position:relative;
   width:100%;}
 
 header{
-  box-sizing:border-box;
+  border-bottom:1px solid rgb(25,25,25);
   height:60px;
   width:100%;
-  background-color:rgb(25,25,25);}
+  background-color:rgb(35,35,35);}
 
 main{
   position:relative;
   display:flex;}
 
-/*** panel ***/
+/*** панели ***/
 .panel{
-  box-sizing:border-box;
+  -webkit-user-select:none;
+  user-select:none;
   height:calc(100vh - 60px);
   background-color:rgb(25,25,25);}
 
 .panel.animated{transition:width 0.2s,min-width 0.2s;}
 
+.panelHeader,
+.panelFooter{
+  width:100%;
+  background-color:rgb(32,32,32);}
+
+.panelBody{
+  padding-left:5px;
+  padding-right:5px;
+  position:relative;
+  height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;}
+
 .panelToggle{
   animation-name:fadeIn;
   animation-duration:0.05s;
-  box-sizing:border-box;
   position:absolute;
   width:30px;
   height:30px;
@@ -123,31 +131,30 @@ main{
   stroke-width:1.5!important;
   stroke:rgb(200,200,200);}
 
-/*** buttons ***/
+/*** кнопки ***/
 .button{
-  box-sizing:border-box;
   position:relative;
   display:inline-flex;
   border-radius:5px;
   border:0;
   white-space:nowrap;
   cursor:pointer;
-  color:rgb(150,150,150);
   background-color:rgb(40,40,40);
   transition:background-color 0.2s;}
 
 @media (hover: hover){
-  .button:hover{background-color:rgb(45,45,45);}
+  .button:hover{background-color:rgb(50,50,50);}
 }
 
+.button:active{background-color:rgb(60,60,60);}
+
 .buttonIcon{
-  box-sizing:border-box;
   position:relative;
   height:inherit;
-  width:inherit;
-  min-width:30px;}
+  width:inherit;}
 
 .buttonIcon svg{
+  pointer-events:none;
   width:20px;
   height:20px;
   position:absolute;
@@ -155,25 +162,27 @@ main{
   top:50%;
   left:50%;
   transform:translate3d(-50%,-50%,0) rotate(0deg);
-
   stroke:rgb(200,200,200);
   fill:none;}
 
 .buttonText{
-  flex-grow:1;}
+  color:rgb(175,175,175);
+  flex-grow:1;
+  transition:color 0.2s;}
+
+/*** svg ***/
+#svg{display:none;}
 
 svg{
   stroke-linecap:butt;
   stroke-linejoin:miter;}
 
-/*** svg ***/
-#svg{display:none;}
-
-/*** animation ***/
+/*** анимации ***/
 @keyframes fadeIn{
   0%{opacity:0;}
   100%{opacity:1;}
 }
+
 @keyframes fadeOut{
   0%{opacity:1;}
   100%{opacity:0;}
