@@ -7,13 +7,8 @@
     left:0;}
 }
 
-#channelsPanel[data-state="closed"]{
-  width:60px;
-  min-width:60px;}
-
-#channelsPanel[data-state="opened"]{
-  width:280px;
-  min-width:280px;}
+#channelsPanel[data-state="closed"]{width:60px;}
+#channelsPanel[data-state="opened"]{width:280px;}
 
 #channelsPanel[data-state="closed"] .panelToggle{left:70px;}
 #channelsPanel[data-state="opened"] .panelToggle{left:290px;}
@@ -22,27 +17,20 @@
 #channelsPanel[data-state="opened"] .panelToggle svg{
   transform:translate3d(-50%,-50%,0) rotate(180deg);}
 
-.channelsBody{
-  padding-left:5px;
-  padding-right:5px;
-  position:relative;
-  height:100%;
-  overflow-y:auto;
-  overflow-x:hidden;
-  display:flex;
-  flex-direction:column;
-  flex-grow:1;}
-
 @-moz-document url-prefix(){
-  .channelsBody{scrollbar-width:thin;}
+  #channelsPanel .panelBody{scrollbar-width:thin;}
 }
 
-#channelsPanel[data-state="closed"] .channelsBody::-webkit-scrollbar{width:0px;}
-/*
-#channelsPanel[data-state="closed"] .channelsBody:hover::-webkit-scrollbar{width:3px;}
-*/
+#channelsPanel[data-state="closed"] .panelBody::-webkit-scrollbar{width:3px;}
+
+#channelsPanel[data-state="closed"] .panelBody::-webkit-scrollbar-thumb{
+  background-color:transparent;}
+
+#channelsPanel[data-state="closed"] .panelBody:hover::-webkit-scrollbar-thumb{
+  background-color:rgb(75,75,75);}
+
 .channelsGroup{
-  margin-bottom:10px;
+  margin-top:5px;
   position:relative;
   transition:height 0.2s;}
 
@@ -54,25 +42,22 @@
   position:relative;
   display:flex;
   height:40px;
-  border-radius:5px;
-  padding-top:5px;}
+  border-radius:5px;}
 
 .channelsGroupTitleIcon{
   position:relative;
-  box-sizing:border-box;
   height:100%;
   width:50px;
   min-width:50px;}
 
 .channelsGroupTitleText{
   margin-left:10px;
-  
   letter-spacing:1px;
   text-transform:uppercase;
   font-size:80%;
   flex-grow:1;
   height:100%;
-  line-height:42px;
+  line-height:40px;
   white-space:nowrap;
   overflow:hidden;}
 
@@ -97,9 +82,8 @@
   display:flex;
   flex-direction:column;}
 
-.channelsGroupItem{
+.channel{
   cursor:pointer;
-  box-sizing:border-box;
   display:flex;
   position:relative;
   width:100%;
@@ -109,26 +93,25 @@
   padding-bottom:5px;
   transition:background-color 0.2s;}
 
-.channelsGroupItem[data-state="offline"]{
+.channel[data-state="offline"]{
   opacity:.4;
   transition:opacity 0.2s;}
 
 @media (hover: hover){
-  .channelsGroupItem:hover{background-color:rgba(255,255,255,.06);}
-  .channelsGroupItem[data-state="offline"]:hover{opacity:1;}
+  .channel:hover{background-color:rgb(40,40,40);}
+  .channel[data-state="offline"]:hover{opacity:1;}
 }
+.channel:active{background-color:rgb(50,50,50);}
 
-.channelsGroupItemImage{
-  box-sizing:border-box;
+.channelImage{
   display:block;
   position:relative;
   width:50px;
   min-width:50px;
   height:40px;}
 
-.channelsGroupItemImage::after{
+.channelImage::after{
   position:absolute;
-  box-sizing:border-box;
   display:block;
   content:'';
   width:40px;
@@ -138,109 +121,108 @@
   left:50%;
   transform:translate(-50%,-50%);}
 
-.channelsGroupItemImage img{
+.channelImage img{
+  pointer-events:none;
   position:absolute;
-  box-sizing:border-box;
   width:34px;
   height:34px;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);}
 
-.channelsGroupItem[data-state='offline'] .channelsGroupItemImage::after{
+.channel[data-state='offline'] .channelImage::after{
   border:1.5px solid rgb(75,75,75);
 }
 
-.channelsGroupItem[data-state='online'] .channelsGroupItemImage::after{
+.channel[data-state='online'] .channelImage::after{
   border:1.5px solid rgb(205,53,68);
 }
 
-.channelsGroupItemText{
-  margin-left:10px;
+.channelText{
+  padding-left:10px;
   flex-grow:1;
   position:relative;}
 
-.channelsGroupItemName,
-.channelsGroupItemTitle{
+.channelName,
+.channelTitle{
+  pointer-events:none;
   display:block;
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;}
 
-.channelsGroupItemName{
+.channelName{
   width:130px;
   line-height:22px;
   font-size:85%;
   color:rgb(220,220,220);}
 
-.channelsGroupItemTitle{
+.channelTitle{
   line-height:18px;
   margin-right:5px;
   width:205px;
   font-size:75%;
   color:rgb(125,125,125);}
 
-.channelsGroupItemViewers{
-  border-radius:5px;
-  font-size:70%;
+.channelViewers{
+  pointer-events:none;
   position:absolute;
+  display:inline-flex;
+  border-radius:5px;
+  height:18px;
   top:1px;
   right:10px;
-  padding:2px 5px 2px 15px;
   background-color:rgba(255,255,255,.08);}
 
-.channelsGroupItemViewers::after{
-  content:'';
-  position:absolute;
-  top:50%;
-  left:5px;
-  border-radius:50%;
-  display:block;
-  height:6px;
-  width:6px;
-  background-color:rgb(205,53,68);
-  transform:translateY(-50%);}
+.channelViewersIcon svg{
+  width:15px;
+  height:18px;}
 
-.channelsLoadMore{
-  margin-top:5px;
-  border-radius:5px;
-  cursor:pointer;
-  position:relative;
-  display:flex;
-  height:40px;
+.channelViewersNumber{
+  padding-right:5px;
+  line-height:18px;
+  font-size:70%;}
+
+/* кнопки */
+.panelToggle .button{width:30px;}
+
+.channelsToggle .button{
+  width:100%;
   min-width:50px;
-  background-color:rgba(255,255,255,.04);}
+  height:30px;}
 
-@media (hover: hover){
-  .channelsLoadMore:hover{background-color:rgba(255,255,255,.06);}
-}
-
-.channelsLoadMoreIcon{
-  position:relative;
-  box-sizing:border-box;
+.channelsToggle .buttonIcon{
   height:100%;
   width:50px;
   min-width:50px;}
 
-.channelsLoadMoreIcon svg{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%) rotate(90deg);
-  display:block;
-  width:14px;
-  height:14px;
-  pointer-events:none;
-  stroke:rgb(200,200,200);
-  stroke-width:1.75;
-  fill:none;}
+.channelsToggle .buttonIcon svg{
+  transform:translate3d(-50%,-50%,0) rotate(90deg);
+  width:14px!important;
+  height:14px!important;
+  stroke-width:1.75;}
 
-.channelsLoadMoreTitle{
+.channelsToggle.showLess .buttonIcon svg{
+  transform:translate3d(-50%,-50%,0) rotate(-90deg);}
+
+.channelsToggle .buttonText{
   margin-left:10px;
-  color:rgb(200,200,200);
   font-size:80%;
-  flex-grow:1;
   height:100%;
-  line-height:42px;
-  white-space:nowrap;
-  overflow:hidden;}
+  line-height:30px;}
+
+@media (hover: hover){
+  .channelsToggle:hover .buttonText{color:rgb(220,220,220);}
+}
+
+#channelsPopup{
+  z-index:999;
+  position:absolute;
+  border-radius:5px;
+  border:1px solid rgb(50,50,50);
+  top:120px;
+  left:70px;
+  width:220px;
+  height:50px;
+  padding:5px 0;
+  background-color:rgb(35,35,35);}
