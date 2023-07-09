@@ -45,7 +45,7 @@ const resizeApp = new ResizeObserver(entries=>{
 resizeApp.observe(app);
 */
 
-panelToggle.forEach(function(el) {
+panelToggle.forEach(function(el){
   el.addEventListener('click',()=>{
 
     if(!el.parentElement.classList.contains('animated')){
@@ -77,6 +77,22 @@ panelToggle.forEach(function(el) {
   });
 });
 
+let groupFavoritesToggle = document.getElementById('groupFavorites').querySelector('.channelsToggle');
+
+groupFavoritesToggle.addEventListener('click',()=>{
+  groupFavoritesToggle.classList.toggle('showMore');
+  groupFavoritesToggle.classList.toggle('showLess');
+  let buttonText = groupFavoritesToggle.querySelector('.buttonText');
+
+  if(groupFavoritesToggle.classList.contains('showMore')){
+    buttonText.innerHTML = 'Показать больше';
+  }
+  else if(groupFavoritesToggle.classList.contains('showLess')){
+    buttonText.innerHTML = 'Показать меньше';
+  };
+});
+
+
 class Textarea{
   constructor(elementId,rowsMax){
     this.element = document.getElementById(elementId);
@@ -87,7 +103,6 @@ class Textarea{
     this.padding = parseFloat(this.style.paddingTop) + parseFloat(this.style.paddingBottom);
     this.rowHeight = this.element.clientHeight - this.padding;
     this.element.addEventListener('input',()=>this.textareaAutoHeight());
-    window.addEventListener('resize',()=>this.textareaAutoHeight());
   };
   textareaAutoHeight(){
     this.element.rows = 1;
@@ -96,62 +111,74 @@ class Textarea{
     else if(this.rowsMax > 0) this.rowsCount <= this.rowsMax ? this.element.rows = this.rowsCount : this.element.rows = this.rowsMax
     else throw new Error('кол-во строк должно быть 0 или больше');
   };
-}
-new Textarea('chat',3);
+};
+new Textarea('textarea',3);
 
+function numberFormat(number){
+  number = Math.trunc(Math.abs(number));
+  if(number > 999) number = (number/1000).toFixed(1) + 'К'
+  return number;
+};
 
+function channelCreate(id,status,name,title,viewers){
+  let viewersBlock,viewersFormatted;
+  viewersFormatted = numberFormat(viewers);
 
-function createChannelsGroupItem(id,status,name,title,viewers){
-  let v;
   if(status === 'offline'){
     title = 'Не в сети';
-    v = '';
+    viewersBlock = '';
   }
   else if(status === 'online'){
-    v = `<div class="channelsGroupItemViewers"><span>`+viewers+`</span></div>`;
+    viewersBlock = 
+   `<div class="channelViewers">
+      <div class="channelViewersIcon">
+        <svg><use xlink:href="#svgIconOnline"></use></svg>
+      </div>
+      <div class="channelViewersNumber" data-number="`+viewers+`">`+viewersFormatted+`</div>
+    </div>`;
   };
 
-
   let html =
-   `<a href="" class="channelsGroupItem" data-state="`+status+`">
-      <div class="channelsGroupItemImage">
+   `<a href="" class="channel" data-state="`+status+`">
+      <div class="channelImage">
         <img src="avatar.png">
       </div>
-      <div class="channelsGroupItemText">
-        <div class="channelsGroupItemName">`+name+`</div>
-        <div class="channelsGroupItemTitle">`+title+`</div>
-        `+v+`
+      <div class="channelText">
+        <div class="channelName">`+name+`</div>
+        <div class="channelTitle">`+title+`</div>
+        `+viewersBlock+`
        </div>
     </a>`;
-  document.getElementById(id).insertAdjacentHTML('beforeend',html)
+  document.getElementById(id).insertAdjacentHTML('beforeend',html);
+  
 };
 
 // избранное
-createChannelsGroupItem(
+channelCreate(
   'listFavorites',
   'online',
   'Алёша Попович и Тугарин Змей',
   'Этот стример думает, что вам интересно смотреть',
-  '123,456'
+  '123456'
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listFavorites',
   'online',
   'Колобок',
   '✅ Заголовок трансляции',
-  '12,345'
+  '12345'
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listFavorites',
   'online',
   'СИНЬОР ПОМИДОР',
   'ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ',
-  '1,234'
+  '1234'
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listFavorites',
   'offline',
   'Домовёнок Кузя',
@@ -159,7 +186,7 @@ createChannelsGroupItem(
   ''
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listFavorites',
   'offline',
   'Кот Леопольд',
@@ -168,31 +195,31 @@ createChannelsGroupItem(
 );
 
 // рекомендуемое
-createChannelsGroupItem(
+channelCreate(
   'listRecommend',
   'online',
   'Доктор Айболит',
   'Добрый доктор',
-  '123,456'
+  '123456'
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listRecommend',
   'online',
   'Дюймовочка',
   'Маленькая и добрая девочка',
-  '12,345'
+  '12345'
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listRecommend',
   'online',
   'Леший',
   'Лесной дух',
-  '1,234'
+  '1234'
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listRecommend',
   'online',
   'Змей-горыныч',
@@ -200,10 +227,37 @@ createChannelsGroupItem(
   '123'
 );
 
-createChannelsGroupItem(
+channelCreate(
   'listRecommend',
   'online',
   'Кащей бессмертный',
   'Злой чародей',
   '12'
 );
+
+
+let channelsPopup = document.getElementById('channelsPopup');
+let channelsArray = document.querySelector('#channelsPanel').querySelectorAll('.channel');
+
+channelsArray.forEach(function(el){
+  el.addEventListener('mouseover',()=>{
+
+    if(localStorage.getItem('channelsPanelState') === 'closed'){
+      el.classList.add('popup');
+      channelsPopup.style.display = 'flex';
+      console.log(el.getBoundingClientRect().top);
+      console.log(el.getBoundingClientRect().height);
+      channelsPopup.style.top = el.getBoundingClientRect().top+'px';
+      let clone = el.querySelector('.channelText').cloneNode(true);
+
+      channelsPopup.replaceChildren(clone);
+    };
+
+  });
+  el.addEventListener('mouseout',()=>{
+    if(localStorage.getItem('channelsPanelState') === 'closed'){
+      el.classList.remove('popup');
+      channelsPopup.style.display = 'none';
+    };
+  });
+});
