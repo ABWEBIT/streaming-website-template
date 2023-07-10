@@ -120,121 +120,105 @@ function numberFormat(number){
   return number;
 };
 
-function channelCreate(id,status,name,title,viewers){
-  let viewersBlock,viewersFormatted;
-  viewersFormatted = numberFormat(viewers);
-
-  if(status === 'offline'){
-    title = 'Не в сети';
-    viewersBlock = '';
-  }
-  else if(status === 'online'){
-    viewersBlock = 
-   `<div class="channelViewers">
-      <div class="channelViewersIcon">
-        <svg><use xlink:href="#svgIconOnline"></use></svg>
-      </div>
-      <div class="channelViewersNumber" data-number="`+viewers+`">`+viewersFormatted+`</div>
-    </div>`;
+class Channel{
+  constructor(list,status,viewers,name,title){
+    this.list = list;
+    this.status = status;
+    this.name = name;
+    this.title = title;
+    this.viewersNumber = viewers;
+    this.viewersBlock = '';
+    this.viewersFormat;
+    this.channel;
+    this.render();
   };
+  render(){
+    if(this.status === 'offline') this.title = 'Не в сети';
 
-  let html =
-   `<a href="" class="channel" data-state="`+status+`">
-      <div class="channelImage">
-        <img src="avatar.png">
-      </div>
-      <div class="channelText">
-        <div class="channelName">`+name+`</div>
-        <div class="channelTitle">`+title+`</div>
-        `+viewersBlock+`
-       </div>
-    </a>`;
-  document.getElementById(id).insertAdjacentHTML('beforeend',html);
-  
+    else if(this.status === 'online'){
+      this.viewersFormat = Math.trunc(Math.abs(this.viewersNumber));
+      if(this.viewersFormat > 999) this.viewersFormat = (this.viewersFormat/1000).toFixed(1) + 'К'
+
+      this.viewersBlock = 
+       `<div class="channelViewers">
+          <div class="channelViewersIcon">
+            <svg><use xlink:href="#svgIconOnline"></use></svg>
+          </div>
+          <div class="channelViewersNumber" data-number="`+this.viewersNumber+`">`+this.viewersFormat+`</div>
+        </div>`;
+    };
+
+    this.channel =
+    `<a href="" class="channel" data-state="`+this.status+`">
+        <div class="channelImage">
+          <img src="avatar.png">
+        </div>
+        <div class="channelText">
+          <div class="channelName">`+this.name+`</div>
+          <div class="channelTitle">`+this.title+`</div>
+          `+this.viewersBlock+`
+        </div>
+      </a>`;
+    document.getElementById(this.list).insertAdjacentHTML('beforeend',this.channel);
+  };
 };
 
 // избранное
-channelCreate(
-  'listFavorites',
-  'online',
+new Channel(
+  'listFavorites','online','123456',
   'Алёша Попович и Тугарин Змей',
-  'Этот стример думает, что вам интересно смотреть',
-  '123456'
-);
+  'Этот стример думает, что вам интересно смотреть');
 
-channelCreate(
-  'listFavorites',
-  'online',
+new Channel(
+  'listFavorites','online','123456',
+  'Алёша Попович и Тугарин Змей',
+  'Этот стример думает, что вам интересно смотреть');
+
+new Channel(
+  'listFavorites','online','12345',
   'Колобок',
-  '✅ Заголовок трансляции',
-  '12345'
-);
+  '✅ Заголовок трансляции');
 
-channelCreate(
-  'listFavorites',
-  'online',
+new Channel(
+  'listFavorites','online','1234',
   'СИНЬОР ПОМИДОР',
-  'ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ',
-  '1234'
-);
+  'ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ');
 
-channelCreate(
-  'listFavorites',
-  'offline',
+new Channel(
+  'listFavorites','offline','0',
   'Домовёнок Кузя',
-  '',
-  ''
-);
+  '');
 
-channelCreate(
-  'listFavorites',
-  'offline',
+new Channel(
+  'listFavorites','offline','0',
   'Кот Леопольд',
-  '',
-  ''
-);
+  '');
 
 // рекомендуемое
-channelCreate(
-  'listRecommend',
-  'online',
+new Channel(
+  'listRecommend','online','123456',
   'Доктор Айболит',
-  'Добрый доктор',
-  '123456'
-);
+  'Добрый доктор');
 
-channelCreate(
-  'listRecommend',
-  'online',
+new Channel(
+  'listRecommend','online','12345',
   'Дюймовочка',
-  'Маленькая и добрая девочка',
-  '12345'
-);
+  'Маленькая и добрая девочка');
 
-channelCreate(
-  'listRecommend',
-  'online',
+new Channel(
+  'listRecommend','online','1234',
   'Леший',
-  'Лесной дух',
-  '1234'
-);
+  'Лесной дух');
 
-channelCreate(
-  'listRecommend',
-  'online',
+new Channel(
+  'listRecommend','online','123',
   'Змей-горыныч',
-  'Огнедышащий дракон',
-  '123'
-);
+  'Огнедышащий дракон');
 
-channelCreate(
-  'listRecommend',
-  'online',
+new Channel(
+  'listRecommend','online','12',
   'Кащей бессмертный',
-  'Злой чародей',
-  '12'
-);
-
+  'Злой чародей');
 
 let channelsArray = document.querySelector('#channelsPanel').querySelectorAll('.channel');
 
