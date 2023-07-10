@@ -120,42 +120,6 @@ function numberFormat(number){
   return number;
 };
 
-
-class Channel{
-  constructor(id,status,name,title,viewers){
-    this.list = document.getElementById(id);
-    this.status = status;
-    this.name = name;
-    this.title = title;
-    this.viewers = viewers;
-
-    this.style = window.getComputedStyle(this.element);
-    this.padding = parseFloat(this.style.paddingTop) + parseFloat(this.style.paddingBottom);
-    this.rowHeight = this.element.clientHeight - this.padding;
-    this.element.addEventListener('input',()=>this.textareaAutoHeight());
-  };
-  textareaAutoHeight(){
-    this.element.rows = 1;
-    this.rowsCount = Math.round((this.element.scrollHeight - this.padding) / this.rowHeight);
-    if(this.rowsMax === 0) this.element.rows = this.rowsCount
-    else if(this.rowsMax > 0) this.rowsCount <= this.rowsMax ? this.element.rows = this.rowsCount : this.element.rows = this.rowsMax
-    else throw new Error('кол-во строк должно быть 0 или больше');
-  };
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function channelCreate(id,status,name,title,viewers){
   let viewersBlock,viewersFormatted;
   viewersFormatted = numberFormat(viewers);
