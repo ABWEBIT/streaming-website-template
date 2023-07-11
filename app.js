@@ -129,11 +129,19 @@ class Channel{
     this.viewersNumber = viewers;
     this.viewersBlock = '';
     this.viewersFormat;
+    this.link;
     this.channel;
     this.render();
+    this.link.addEventListener('mouseover',()=>this.mouseover());
+    this.link.addEventListener('mouseout',()=>this.mouseout());
   };
   render(){
-    if(this.status === 'offline') this.title = 'Не в сети';
+    this.link = document.createElement('a');
+    this.link.href = '';
+    this.link.className = 'channel';
+    this.link.dataset.state = this.status;
+
+    if(this.status === 'offline') this.title = 'Не в сети'
 
     else if(this.status === 'online'){
       this.viewersFormat = Math.trunc(Math.abs(this.viewersNumber));
@@ -149,96 +157,34 @@ class Channel{
     };
 
     this.channel =
-    `<a href="" class="channel" data-state="`+this.status+`">
-        <div class="channelImage">
-          <img src="avatar.png">
-        </div>
-        <div class="channelText">
+     `<div class="channelImage">
+        <img src="avatar.png">
+      </div>
+      <div class="channelInfo">
+        <div class="channelBlock">
           <div class="channelName">`+this.name+`</div>
-          <div class="channelTitle">`+this.title+`</div>
           `+this.viewersBlock+`
         </div>
-      </a>`;
-    document.getElementById(this.list).insertAdjacentHTML('beforeend',this.channel);
+        <div class="channelTitle">`+this.title+`</div>
+      </div>`;
+
+    this.link.innerHTML = this.channel;
+    document.getElementById(this.list).appendChild(this.link);
   };
-};
-
-// избранное
-new Channel(
-  'listFavorites','online','123456',
-  'Алёша Попович и Тугарин Змей',
-  'Этот стример думает, что вам интересно смотреть');
-
-new Channel(
-  'listFavorites','online','123456',
-  'Алёша Попович и Тугарин Змей',
-  'Этот стример думает, что вам интересно смотреть');
-
-new Channel(
-  'listFavorites','online','12345',
-  'Колобок',
-  '✅ Заголовок трансляции');
-
-new Channel(
-  'listFavorites','online','1234',
-  'СИНЬОР ПОМИДОР',
-  'ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ');
-
-new Channel(
-  'listFavorites','offline','0',
-  'Домовёнок Кузя',
-  '');
-
-new Channel(
-  'listFavorites','offline','0',
-  'Кот Леопольд',
-  '');
-
-// рекомендуемое
-new Channel(
-  'listRecommend','online','123456',
-  'Доктор Айболит',
-  'Добрый доктор');
-
-new Channel(
-  'listRecommend','online','12345',
-  'Дюймовочка',
-  'Маленькая и добрая девочка');
-
-new Channel(
-  'listRecommend','online','1234',
-  'Леший',
-  'Лесной дух');
-
-new Channel(
-  'listRecommend','online','123',
-  'Змей-горыныч',
-  'Огнедышащий дракон');
-
-new Channel(
-  'listRecommend','online','12',
-  'Кащей бессмертный',
-  'Злой чародей');
-
-let channelsArray = document.querySelector('#channelsPanel').querySelectorAll('.channel');
-
-channelsArray.forEach(function(el){
-  el.addEventListener('mouseover',()=>{
-
+  mouseover(){
     if(localStorage.getItem('channelsPanelState') === 'closed'){
       let popup,clone;
       popup = document.createElement('div');
       popup.id = 'channelPopup';
-      popup.style.top = el.getBoundingClientRect().top+'px';
-      clone = el.querySelector('.channelText').cloneNode(true);
+      popup.style.top = this.link.getBoundingClientRect().top+'px';
+      clone = this.link.querySelector('.channelInfo').cloneNode(true);
       popup.appendChild(clone);
       document.body.appendChild(popup);
     };
-
-  });
-  el.addEventListener('mouseout',()=>{
+  };
+  mouseout(){
     if(localStorage.getItem('channelsPanelState') === 'closed'){
       document.getElementById('channelPopup').remove();
     };
-  });
-});
+  };
+};
