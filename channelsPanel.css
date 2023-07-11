@@ -1,6 +1,6 @@
 #channelsPanel{z-index:1;}
 
-@media screen and (max-width:1280px) {
+@media screen and (max-width:1280px){
   #channelsPanel{
     position:absolute;
     top:0;
@@ -151,40 +151,40 @@
   border:1.5px solid rgb(205,53,68);
 }
 
-.channelText{
+.channelInfo{
   padding-left:10px;
-  flex-grow:1;
+  width:210px;
   position:relative;}
+
+.channelBlock{display:flex;}
 
 .channelName,
 .channelTitle{
   pointer-events:none;
-  display:block;
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;}
 
 .channelName{
-  width:130px;
+  flex-grow:1;
   line-height:22px;
   font-size:85%;
   color:rgb(220,220,220);}
 
 .channelTitle{
   line-height:18px;
-  margin-right:5px;
   width:205px;
+  flex-grow:1;
   font-size:75%;
   color:rgb(125,125,125);}
 
 .channelViewers{
+  margin-top:1px;
+  margin-left:5px;
   pointer-events:none;
-  position:absolute;
   display:inline-flex;
   border-radius:5px;
   height:18px;
-  top:1px;
-  right:10px;
   background-color:rgba(255,255,255,.08);}
 
 .channelViewersIcon svg{
