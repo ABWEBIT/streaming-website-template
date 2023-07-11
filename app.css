@@ -6,8 +6,8 @@
 *,
 *:after,
 *:before{
-	-webkit-tap-highlight-color:rgba(0,0,0,0)!important;
-	-webkit-tap-highlight-color:transparent!important;
+  -webkit-tap-highlight-color:rgba(0,0,0,0)!important;
+  -webkit-tap-highlight-color:transparent!important;
   box-sizing:border-box!important;
   outline:none!important;}
 
@@ -38,22 +38,18 @@ textarea{
   font-family:Inter-Regular,Arial,sans-serif;
   font-size:85%;
   color:rgb(220,220,220);
-	text-transform:none;}
+  text-transform:none;}
 
 /* удаление пространства под textarea */
 textarea{vertical-align:top;}
 
 input[type="hidden"]{display:none;}
 
-/* video, embed, iframe, object */
+/*** видео ***/
 video{
-	display:inline-block;
-	vertical-align:baseline;}
-
-video,
-embed,
-iframe,
-object{max-width:100%;}
+  max-width:100%;
+  display:inline-block;
+  vertical-align:baseline;}
 
 /*** общие настройки ***/
 html,body{
