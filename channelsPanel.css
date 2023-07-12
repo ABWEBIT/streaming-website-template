@@ -86,12 +86,13 @@
   cursor:pointer;
   display:flex;
   position:relative;
-  width:100%;
-  min-width:50px;
   border-radius:5px;
   padding-top:5px;
   padding-bottom:5px;
   transition:background-color 0.2s;}
+
+#channelsPanel[data-state="closed"] .channel{width:50px;}
+#channelsPanel[data-state="opened"] .channel{width:270px;}
 
 .channel[data-state="offline"]{
   opacity:.4;
@@ -109,9 +110,8 @@
   display:flex;
   border-radius:5px;
   border:1px solid rgb(50,50,50);
-  top:120px;
   left:70px;
-  width:220px;
+  width:225px;
   height:50px;
   padding:5px 0;
   background-color:rgb(35,35,35);}
@@ -153,7 +153,7 @@
 
 .channelInfo{
   padding-left:10px;
-  width:210px;
+  width:215px;
   position:relative;}
 
 .channelBlock{display:flex;}
@@ -201,10 +201,10 @@
   height:30px;
   width:30px;}
 
-.channelsToggle .button{
-  width:100%;
-  min-width:50px;
-  height:35px;}
+.channelsToggle .button{height:35px;}
+
+#channelsPanel[data-state="closed"] .channelsToggle .button{width:50px;}
+#channelsPanel[data-state="opened"] .channelsToggle .button{width:270px;}
 
 .channelsToggle .buttonIcon{
   height:100%;
