@@ -5,66 +5,140 @@
   <title>Шаблон</title>
   <link rel="icon" href="data:,">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="app.css?v=3">
-  <link rel="stylesheet" href="channelsPanel.css?v=3">
-  <link rel="stylesheet" href="chattingPanel.css?v=3">
-  <link rel="stylesheet" href="streamerPanel.css?v=3">
+  <link rel="stylesheet" href="./style/defaults.css?v=3">
+  <link rel="stylesheet" href="./style/channels.css?v=3">
+  <link rel="stylesheet" href="./style/chatting.css?v=3">
+  <link rel="stylesheet" href="./style/streamer.css?v=3">
+  <script src="./script/button.js?v=3"></script>
+  <script src="./script/channel.js?v=3"></script>
 </head>
-<body>
-<div id="app">
+<body id="app">
   <header></header>
 
   <main>
+    <section class="channelsComponent opened">
+      <div class="channelsBody">
 
-    <section id="channelsPanel" class="panel" data-state="closed">
+        <div class="channelsGroup">
+          <button- class="buttonChannels"
+            bPrefix="svgFavorites" bCore="Избранные каналы" bSuffix="svgArrowSmall">
+          </button->
 
-      <div class="panelToggle">
-        <div class="button">
-          <div class="buttonIcon">
-            <svg><use xlink:href="#svgIconToggleButton"/></svg>
+          <div class="channelsGroupList channelsGroupFavorites">
+            <channel- 
+              cPartner="default"
+              cName="Алёша Попович и Тугарин Змей"
+              cTitle="Стример думает, что вам интересно смотреть или ему всё равно"
+              cCategory="Говорим и смотрим"
+              cStatus="broadcasting"
+              cViwers="123456">
+            </channel->
+
+            <channel- 
+              cPartner="default"
+              cName="Колобок"
+              cTitle="✅ Заголовок трансляции"
+              cCategory="Baldur's Gate 3"
+              cStatus="broadcasting"
+              cViwers="12345">
+            </channel->
+
+            <channel- 
+              cPartner="default"
+              cName="СИНЬОР ПОМИДОР"
+              cTitle="ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ"
+              cCategory="Expeditions: A MudRunner Game"
+              cStatus="broadcasting"
+              cViwers="1234">
+            </channel->
+
+            <channel- 
+              cPartner="verified"
+              cName="Домовёнок Кузя"
+              cTitle="!vk стримы каждый день"
+              cCategory="Cult of the Lamb"
+              cStatus="retranslation"
+              cViwers="0">
+            </channel->
+
+            <channel- 
+              cPartner="verified"
+              cName="Кот Леопольд"
+              cTitle="Ничего не понял, но очень интересно"
+              cCategory="Last Epoch"
+              cStatus="offline"
+              cViwers="0">
+            </channel->
+          </div>
+
+          <button- class="buttonChannels"
+            bPrefix="svgClockRewind" bCore="История просмотра" bSuffix="svgArrowSmall">
+          </button->
+
+          <button- class="buttonChannels"
+            bPrefix="svgTeleport" bCore="Телепортация">
+          </button->
+        </div>
+
+        <div class="channelsGroup">
+          <div class="channelsGroupList channelsGroupRecommend">
+            <channel- 
+              cPartner="default"
+              cName="Доктор Айболит"
+              cTitle="Добрый доктор"
+              cCategory="Говорим и смотрим"
+              cStatus="broadcasting"
+              cViwers="123456">
+            </channel->
+
+            <channel- 
+              cPartner="verified"
+              cName="Дюймовочка"
+              cTitle="Маленькая и добрая девочка"
+              cCategory="Говорим и смотрим"
+              cStatus="broadcasting"
+              cViwers="12345">
+            </channel->
+
+            <channel- 
+              cPartner="default"
+              cName="Леший"
+              cTitle="Лесной дух"
+              cCategory="Говорим и смотрим"
+              cStatus="broadcasting"
+              cViwers="1234">
+            </channel->
+
+            <channel- 
+              cPartner="default"
+              cName="Змей-горыныч"
+              cTitle="Огнедышащий дракон"
+              cCategory="Говорим и смотрим"
+              cStatus="broadcasting"
+              cViwers="123">
+            </channel->
+
+            <channel- 
+              cPartner="verified"
+              cName="Кащей бессмертный"
+              cTitle="Злой чародей"
+              cCategory="Говорим и смотрим"
+              cStatus="broadcasting"
+              cViwers="0">
+            </channel->
           </div>
         </div>
+
       </div>
 
-      <div class="panelBody">
-
-        <div id="groupFavorites" class="channelsGroup">
-          <div class="channelsGroupTitle">
-            <div class="channelsGroupTitleIcon">
-              <svg><use xlink:href="#svgIconFavorites"></use></svg>
-            </div>
-            <div class="channelsGroupTitleText">избранное</div>
-          </div>
-
-          <div id="listFavorites" class="channelsGroupList"></div>
-
-          <div class="channelsToggle showMore">
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconNormalArrow"></use></svg>
-              </div>
-              <div class="buttonText">Показать больше</div>
-            </div>
-          </div>
-
-        </div>
-
-        <div id="groupRecommend" class="channelsGroup">
-          <div class="channelsGroupTitle" data-state="maximized">
-            <div class="channelsGroupTitleIcon">
-              <svg><use xlink:href="#svgIconRecommend"></use></svg>
-            </div>
-            <div class="channelsGroupTitleText">рекомендуемое</div>
-          </div>
-
-          <div id="listRecommend" class="channelsGroupList"></div>
-
-        </div>
-
+      <div class="channelsFooter">
+        <button- class="buttonChannels channelsToggle"
+          bPrefix="svgToggle" bCore="Свернуть панель">
+        </button->
       </div>
-
-      <div class="panelFooter"></div>
     </section>
+
+
 
     <section id="streamerPanel">
 
@@ -78,203 +152,50 @@
     </section>
 
 
-    <section id="chattingPanel" class="panel" data-state="closed">
+    <section class="chattingComponent opened">
 
-      <div class="panelToggle">
-        <div class="button">
-          <div class="buttonIcon">
-            <svg><use xlink:href="#svgIconToggleButton"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="panelHeader">
+      <div class="chattingHeader">
         <div class="chattingSystem">
-          <div class="chattingData">
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconOnline"/></svg>
-              </div>
-              <div class="buttonText">1,2K</div>
-            </div>
-          </div>
-          <div class="chattingButtons">
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconChat1"/></svg>
-              </div>
-            </div>
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconAt"/></svg>
-              </div>
-            </div>
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconPin"/></svg>
-              </div>
-            </div>
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconUsers"/></svg>
-              </div>
-            </div>
-          </div>
+          <button- class="buttonChatting" bPrefix="svgRedDot" bCore="1,2K"></button->
+          <div class="separatorX"></div>
+          <button- class="buttonChatting" bPrefix="svgIconChat1"></button->
+          <button- class="buttonChatting" bPrefix="svgIconAt"></button->
+          <button- class="buttonChatting" bPrefix="svgIconPin"></button->
+          <button- class="buttonChatting" bPrefix="svgIconUsers"></button->
         </div>
       </div>
 
-      <div class="panelBody">
-        <div id="chat">
+      <div class="chattingBody">
+        <div id="chattingChat">
 
-          <div class="message">
+          <div class="chatMessage">
             <div class="messageText">Добро пожаловать в чат</div>
           </div>
 
         </div>
       </div>
 
-      <div class="panelFooter">
-
-        <div class="chattingStatus">
-        
-        </div>
-
+      <div class="chattingFooter">
         <div class="chattingTextarea">
           <textarea id="textarea" rows="1" cols="1" placeholder="Написать сообщение"></textarea>
         </div>
-
         <div class="chattingSystem">
-          <div class="chattingData">
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconPoints"/></svg>
-              </div>
-              <div class="buttonText">12,3K</div>
-            </div>
-          </div>
-          <div class="chattingButtons">
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconGear"/></svg>
-              </div>
-            </div>
-            <div class="button">
-              <div class="buttonIcon">
-                <svg><use xlink:href="#svgIconSend"/></svg>
-              </div>
-            </div>
-          </div>
+          <button- class="buttonChatting" bPrefix="svgIconPoints" bCore="12,3K"></button->
+          <div class="separatorX"></div>
+          <button- class="buttonChatting" bPrefix="svgIconGear"></button->
+          <button- class="buttonChatting" bPrefix="svgIconSend"></button->
         </div>
-
       </div>
 
     </section>
 
   </main>
 
-  <footer></footer>
-</div>
-
-<svg id="svg" xmlns="http://www.w3.org/2000/svg">
-
-  <symbol id="svgIconOnline" viewBox="0 0 20 20" style="fill:rgb(205,53,68);stroke-width:0;stroke:transparent;">
-    <circle cx="50%" cy="50%" r="4"/>
-  </symbol>
-
-  <symbol id="svgIconPin" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-    <path d="M3.58,4.04c.62-.6,1.46-1.2,2.59-1.65l2.83,2.83s2.65,2.06,4.46,1.08c.32-.18,.72-.14,.98,.12l1.99,1.99c.2,.2,.2,.51,0,.71l-3.89,3.89"/>
-    <path d="M3.58,4.04c-.6,.62-1.2,1.46-1.65,2.59l2.83,2.83s2.06,2.65,1.08,4.46c-.18,.32-.14,.72,.12,.98l1.99,1.99c.2,.2,.51,.2,.71,0l3.89-3.89"/>
-    <line x1="12.89" y1="13.35" x2="17.29" y2="17.75"/>
-  </symbol>
-
-  <symbol id="svgIconSearch" viewBox="0 0 20 20">
-    <circle cx="6.5" cy="8" r="6"/>
-    <line x1="16.5" y1="18" x2="10.5" y2="12"/>
-    <path d="M5.65,4.02s3.99-.7,4.7,4.35"/>
-  </symbol>
-
-  <symbol id="svgIconUser" viewBox="0 0 20 20">
-    <ellipse cx="10" cy="5.29" rx="3.5" ry="4.25"/>
-    <path d="M16.12,18.46c.55-.79,.88-1.69,.88-2.66,0-2.03-1.38-3.79-3.42-4.76-.82,.71-2.11,1.17-3.58,1.17s-2.76-.46-3.58-1.17c-2.05,.97-3.42,2.73-3.42,4.76,0,.97,.33,1.87,.88,2.66h12.25Z"/>
-  </symbol>
-
-  <symbol id="svgIconUsers" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-    <ellipse cx="9" cy="5.29" rx="3.5" ry="4.25"/>
-    <path d="M15.12,18.46c.55-.79,.88-1.69,.88-2.66,0-2.03-1.38-3.79-3.42-4.76-.82,.71-2.11,1.17-3.58,1.17s-2.76-.46-3.58-1.17c-2.05,.97-3.42,2.73-3.42,4.76,0,.97,.33,1.87,.88,2.66H15.12Z"/>
-    <path d="M13.01,1.08c.14-.02,.28-.03,.42-.03"/>
-    <path d="M12.43,1.04c1.78,0,3.21,1.75,3.21,3.9,0,1.97-1.2,3.6-2.76,3.87"/>
-    <path d="M18.05,17.04c.5-.73,.81-1.55,.81-2.44,0-1.86-1.26-3.48-3.14-4.37"/>
-  </symbol>
-
-  <symbol id="svgIconSettings" viewBox="0 0 20 20">
-    <line x1="1" y1="3.86" x2="15" y2="3.86"/>
-    <circle cx="17" cy="3.86" r="2"/>
-    <line x1="19" y1="9.86" x2="5" y2="9.86"/>
-    <circle cx="3" cy="9.86" r="2"/>
-    <line x1="1" y1="15.86" x2="15" y2="15.86"/>
-    <circle cx="17" cy="15.86" r="2"/>
-  </symbol>
-
-<symbol id="svgIconAt" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-  <circle cx="10" cy="10.04" r="3"/>
-  <path d="M13.2,17.38c-.98,.43-2.06,.67-3.2,.67-4.42,0-8-3.58-8-8S5.58,2.04,10,2.04s8,3.58,8,8c-.5,4.5-3.5,4.5-5.5,2.5"/>
-</symbol>
-
-  <symbol id="svgIconSend" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-    <polygon points="3 2 18 10 3 18 8 10 3 2"/>
-  </symbol>
-
-  <symbol id="svgIconNormalArrow" viewBox="0 0 20 20" style="stroke-width:1.75px;">
-    <polyline points="4 2 15 10 4 18"/>
-  </symbol>
-
-  <symbol id="svgIconSmallArrow" viewBox="0 0 20 20">
-    <polyline points="8 7 12 10 8 13"/>
-  </symbol>
-
-  <symbol id="svgIconEye" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-    <path d="M19,10c-2.5,2.5-4.03,6-9,6S3.5,12.5,1,10c2.5-2.5,4.03-6,9-6s6.5,3.5,9,6Z"/>
-    <circle cx="10" cy="10" r="3"/>
-  </symbol>
-
-  <symbol id="svgIconChat" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-    <path d="M14.37,11.53H7.77l-3.75,3.71,.23-3.71h-1.2c-.5,0-.91-.4-.91-.9V3.15c0-.5,.41-.9,.91-.9H14.37c.5,0,.91,.4,.91,.9v7.48c0,.5-.41,.9-.91,.9Z"/>
-    <path d="M8.61,14.13h3.75s3.75,3.71,3.75,3.71l-.23-3.71h1.2c.5,0,.91-.4,.91-.9V5.75c0-.5-.41-.9-.91-.9"/>
-  </symbol>
-
-  <symbol id="svgIconChat1" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-    <path d="M15,7.54c0,3.31-3,6-6.69,6-.72,0-1.41-.1-2.06-.29-1.28,1.29-4.74,2.29-4.74,2.29,1.12-1,2-2,2.35-4-1.36-1.1-2.23-2.23-2.23-4C1.62,4.23,4.61,1.54,8.31,1.54s6.69,2.69,6.69,6Z"/>
-    <path d="M7.9,14.67c1.09,1.73,3.05,2.88,5.29,2.88,.67,0,1.31-.1,1.91-.29,1.19,1.29,4.39,2.29,4.39,2.29-1.03-1-1.85-2-2.17-4,1.26-1.1,2.07-2.23,2.07-4,0-2.34-1.38-4.36-3.39-5.35"/>
-  </symbol>
-
-  <symbol id="svgIconGear" viewBox="0 0 20 20" style="stroke-width:0.75px;">
-    <path d="M16.76,8.03c-.14-.49-.34-.96-.59-1.41l1.27-1.26-2.79-2.79-1.26,1.27c-.45-.25-.92-.44-1.41-.59V1.45h-3.95v1.79c-.49,.14-.96,.34-1.41,.59l-1.26-1.27-2.79,2.79,1.27,1.26c-.25,.45-.44,.92-.59,1.41H1.45v3.95h1.79c.14,.49,.34,.96,.59,1.41l-1.27,1.26,2.79,2.79,1.26-1.27c.45,.25,.92,.44,1.41,.59v1.79h3.95v-1.79c.49-.14,.96-.34,1.41-.59l1.26,1.27,2.79-2.79-1.27-1.26c.25-.45,.44-.92,.59-1.41h1.79v-3.95h-1.79Zm1.23,3.38h-1.66l-.05,.21c-.15,.58-.38,1.14-.69,1.67l-.11,.19,1.18,1.17-1.99,1.99-1.17-1.18-.19,.11c-.52,.31-1.08,.54-1.67,.69l-.21,.05v1.66h-2.82v-1.66l-.21-.05c-.58-.15-1.14-.38-1.67-.69l-.19-.11-1.17,1.18-1.99-1.99,1.18-1.17-.11-.19c-.31-.52-.54-1.08-.69-1.67l-.05-.21h-1.66v-2.82h1.66l.05-.21c.15-.58,.38-1.14,.69-1.67l.11-.19-1.18-1.17,1.99-1.99,1.17,1.18,.19-.11c.52-.31,1.08-.54,1.67-.69l.21-.05v-1.66h2.82v1.66l.21,.05c.58,.15,1.14,.38,1.67,.69l.19,.11,1.17-1.18,1.99,1.99-1.18,1.17,.11,.19c.31,.52,.54,1.08,.69,1.67l.05,.21h1.66v2.82h0Z"/>
-    <path d="M10,6.52c-1.92,0-3.48,1.56-3.48,3.48s1.56,3.48,3.48,3.48,3.48-1.56,3.48-3.48-1.56-3.48-3.48-3.48Zm0,6.39c-1.61,0-2.91-1.31-2.91-2.91s1.31-2.91,2.91-2.91,2.91,1.31,2.91,2.91-1.31,2.91-2.91,2.91Z"/>
-  </symbol>
-
-  <symbol id="svgIconFavorites" viewBox="0 0 20 20">
-    <path d="M14.02,16.68c-.08,0-.16-.02-.23-.06l-3.7-1.95c-.05-.03-.12-.03-.17,0l-3.7,1.95c-.17,.09-.37,.07-.52-.04-.15-.11-.23-.3-.2-.48l.71-4.12c.01-.06,0-.12-.05-.16l-3-2.92c-.14-.13-.18-.33-.13-.51,.06-.18,.21-.31,.4-.34l4.14-.6c.06,0,.11-.05,.14-.1l1.85-3.75c.08-.17,.25-.28,.44-.28,.19,0,.36,.11,.44,.28h0l1.85,3.75c.03,.05,.08,.09,.14,.1l4.14,.6c.19,.03,.34,.16,.4,.34,.06,.18,.01,.38-.13,.51l-3,2.92s-.06,.1-.05,.16l.71,4.12c.03,.19-.04,.37-.2,.48-.09,.06-.19,.1-.29,.1Zm-4.02-2.34c.08,0,.16,.02,.23,.06l3.7,1.95c.06,.03,.14,.03,.19-.01,.06-.04,.09-.11,.07-.18l-.71-4.12c-.03-.16,.03-.32,.14-.44l3-2.92c.05-.05,.07-.12,.05-.19s-.08-.12-.15-.13l-4.14-.6c-.16-.02-.3-.12-.37-.27l-1.85-3.75c-.03-.06-.09-.1-.17-.1s-.13,.04-.17,.1l-1.85,3.75c-.07,.15-.21,.25-.37,.27l-4.14,.6c-.07,.01-.13,.06-.15,.13-.02,.07,0,.14,.05,.19l3,2.92c.12,.11,.17,.28,.14,.44l-.71,4.12c-.01,.07,.02,.14,.07,.18,.06,.04,.13,.05,.19,.01l3.7-1.95c.07-.04,.15-.06,.23-.06Z"/>
-  </symbol>
-
-  <symbol id="svgIconRecommend" viewBox="0 0 20 20">
-    <path d="M18.81,14.94c-.15-.5-.66-.81-1.17-.72-.78,.14-1.65,.37-2.56,.61-.47,.12-.96,.25-1.44,.37-.18-.8-.87-1.4-1.71-1.42h-.38c-.58-.01-1.21-.24-1.82-.45-.61-.22-1.23-.44-1.82-.44-.87,0-1.92,.14-3.11,1.17-.1,.09-.22,.13-.34,.13h-.26v-.68c0-.11-.09-.2-.2-.2H1.35c-.11,0-.2,.09-.2,.2v5.3c0,.11,.09,.2,.2,.2h2.66c.11,0,.2-.09,.2-.2v-.77h.94c.32,0,.63,.03,.94,.1l2.83,.63c.25,.06,.51,.09,.77,.09,.02,0,.03,0,.05,0l1.57-.02c.47,0,.92-.1,1.35-.29l5.55-2.35c.49-.21,.74-.75,.58-1.26Zm-15,3.66H1.55v-4.9H3.81v4.9Zm14.26-2.78l-5.55,2.35c-.38,.16-.79,.25-1.2,.26l-1.57,.02c-.24,0-.49-.02-.73-.08l-2.83-.63c-.34-.08-.68-.11-1.03-.11h-.94v-3.06h.25c.22,0,.44-.07,.61-.22,1.09-.95,2.05-1.08,2.84-1.08,.51,0,1.08,.2,1.68,.41,.64,.23,1.31,.46,1.95,.46h.37c.65,.03,1.2,.5,1.33,1.13-1.66,.38-3.22,.56-3.94-.1-.08-.07-.21-.07-.28,.01-.07,.08-.07,.21,.01,.28,1.14,1.05,3.68,.38,6.14-.27,.91-.24,1.76-.46,2.53-.6,.32-.06,.63,.13,.72,.44,.1,.31-.06,.64-.36,.77Z"/>
-    <path d="M13.68,11.01c-.06,0-.12-.01-.18-.04l-2.89-1.52s-.09-.02-.13,0l-2.89,1.52c-.13,.07-.29,.06-.41-.03-.12-.09-.18-.23-.15-.38l.55-3.22s0-.09-.04-.13l-2.34-2.28c-.11-.1-.14-.26-.1-.4,.05-.14,.17-.24,.31-.26l3.23-.47s.09-.04,.11-.08l1.44-2.93c.07-.13,.2-.22,.35-.22,.15,0,.28,.08,.35,.22h0l1.44,2.93s.06,.07,.11,.08l3.23,.47c.15,.02,.27,.12,.31,.26,.05,.14,0,.29-.1,.4l-2.34,2.28s-.05,.08-.04,.13l.55,3.22c.02,.15-.03,.29-.15,.38-.07,.05-.15,.07-.23,.07Zm-3.14-1.82c.06,0,.12,.01,.18,.04l2.89,1.52s.11,.02,.15-.01c.05-.03,.07-.09,.06-.14l-.55-3.22c-.02-.13,.02-.25,.11-.34l2.34-2.28s.05-.09,.04-.15-.06-.09-.12-.1l-3.23-.47c-.13-.02-.23-.1-.29-.21l-1.44-2.93c-.02-.05-.07-.08-.13-.08s-.1,.03-.13,.08l-1.44,2.93c-.06,.11-.17,.19-.29,.21l-3.23,.47c-.06,0-.1,.04-.12,.1-.02,.05,0,.11,.04,.15l2.34,2.28c.09,.09,.13,.22,.11,.34l-.55,3.22c0,.06,.01,.11,.06,.14,.05,.03,.1,.04,.15,.01l2.89-1.52c.06-.03,.12-.04,.18-.04Z"/>
-  </symbol>
-
-  <symbol id="svgIconToggleButton" viewBox="0 0 20 20">
-    <polyline points="10 4 16 10 10 16"/>
-    <line x1="15.5" y1="10" x2="5.5" y2="10"/>
-    <line x1="4" y1="16.5" x2="4" y2="3.5"/>
-  </symbol>
-
-  <symbol id="svgIconPoints" viewBox="0 0 20 20" style="stroke-width:1.25px;">
-    <circle cx="10" cy="10" r="8"/>
-    <rect x="6.98" y="6.98" width="6.03" height="6.03" transform="translate(10 -4.14) rotate(45)"/>
-  </symbol>
-
-</svg>
-
-<script src="app.js?v=3"></script>
-<script src="data.js?v=3"></script>
+  <footer>
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
+  </footer>
+  <script src="./script/textarea.js?v=3"></script>
+  <script src="./script/svg.js?v=3"></script>
+  <script src="./script/app.js?v=3"></script>
 </body>
 </html>
