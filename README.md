@@ -1,4 +1,4 @@
-# streaming-platform-template  
+# Шаблон сайта для трансляций
 
 Страничка временно отключена  
 https://abwebit.github.io/streaming-website-template/  
