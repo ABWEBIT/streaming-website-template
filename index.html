@@ -13,29 +13,29 @@
   <script src="./script/button.js?v=3"></script>
   <script src="./script/channel.js?v=3"></script>
 </head>
-<body id="app" class="channelsClosed">
-  <section class="navigate disableTextSelection"></section>
+<body id="app" class="channelsClosed chattingOpened">
+  <section class="navigate"></section>
 
-  <section class="channels disableTextSelection">
+  <section class="channels">
     <div class="channelsBody">
 
       <div class="channelsGroup">
         <button- class="buttonChannels"
-          _prefix="svgFavorites" _core="Избранные каналы" _suffix="svgArrowSmall">
+          _prefix="iconFavorites" _core="Избранные каналы" _suffix="iconArrowSmall">
         </button->
 
         <div class="channelsGroupList channelsGroupFavorites">
           <channel- 
-            _partner="default"
+            _partner="verified"
             _name="Алёша Попович и Тугарин Змей"
-            _title="Стример думает, что вам интересно смотреть или ему всё равно"
+            _title="Поповский сын слывет недотепой, но свой город он в обиду не даст."
             _category="Говорим и смотрим"
             _status="broadcasting"
             _viwers="123456">
           </channel->
 
           <channel- 
-            _partner="default"
+            _partner="none"
             _name="Колобок"
             _title="✅ Заголовок трансляции"
             _category="Baldur's Gate 3"
@@ -44,7 +44,7 @@
           </channel->
 
           <channel- 
-            _partner="default"
+            _partner="none"
             _name="СИНЬОР ПОМИДОР"
             _title="ОЧЕНЬ ДЛИННЫЙ ЗАГОЛОВОК ТРАНСЛЯЦИИ, ЗАХОДИ ПОСМОТРЕТЬ"
             _category="Expeditions: A MudRunner Game"
@@ -72,18 +72,18 @@
         </div>
 
         <button- class="buttonChannels"
-          _prefix="svgClockRewind" _core="История просмотра" _suffix="svgArrowSmall">
+          _prefix="iconClockRewind" _core="История просмотра" _suffix="iconArrowSmall">
         </button->
 
         <button- class="buttonChannels"
-          _prefix="svgTeleport" _core="Телепортация">
+          _prefix="iconTeleport" _core="Телепортация">
         </button->
       </div>
 
       <div class="channelsGroup">
         <div class="channelsGroupList channelsGroupRecommend">
           <channel- 
-            _partner="default"
+            _partner="none"
             _name="Доктор Айболит"
             _title="Добрый доктор"
             _category="Говорим и смотрим"
@@ -101,7 +101,7 @@
           </channel->
 
           <channel- 
-            _partner="default"
+            _partner="none"
             _name="Леший"
             _title="Лесной дух"
             _category="Говорим и смотрим"
@@ -110,7 +110,7 @@
           </channel->
 
           <channel- 
-            _partner="default"
+            _partner="none"
             _name="Змей-горыныч"
             _title="Огнедышащий дракон"
             _category="Говорим и смотрим"
@@ -133,21 +133,21 @@
 
     <div class="channelsFooter">
       <button- class="buttonChannels channelsToggle"
-        _prefix="svgToggle" _core="Свернуть панель">
+        _prefix="iconToggle" _core="Свернуть панель">
       </button->
     </div>
   </section>
 
-  <section class="chatting disableTextSelection opened">
+  <section class="chatting">
 
     <div class="chattingHeader">
       <div class="chattingSystem">
-        <button- class="buttonChatting" _prefix="svgRedDot" _core="1,2K"></button->
+        <button- class="buttonChatting" _prefix="iconEye" _core="1,2K"></button->
         <div class="expanderX"></div>
-        <button- class="buttonChatting" _prefix="svgIconChat1"></button->
-        <button- class="buttonChatting" _prefix="svgIconAt"></button->
-        <button- class="buttonChatting" _prefix="svgIconPin"></button->
-        <button- class="buttonChatting" _prefix="svgIconUsers"></button->
+        <button- class="buttonChatting" _prefix="iconChat"></button->
+        <button- class="buttonChatting" _prefix="iconAt"></button->
+        <button- class="buttonChatting" _prefix="iconUsers"></button->
+        <button- class="buttonChatting" _prefix="iconPin"></button->
       </div>
     </div>
 
@@ -166,10 +166,10 @@
         <textarea id="textarea" rows="1" cols="1" placeholder="Написать сообщение"></textarea>
       </div>
       <div class="chattingSystem">
-        <button- class="buttonChatting" _prefix="svgIconPoints" _core="12,3K"></button->
+        <button- class="buttonChatting" _prefix="iconPoints" _core="12,3K"></button->
         <div class="expanderX"></div>
-        <button- class="buttonChatting" _prefix="svgIconGear"></button->
-        <button- class="buttonChatting" _prefix="svgIconSend"></button->
+        <button- class="buttonChatting" _prefix="iconSettings"></button->
+        <button- class="buttonChatting" _prefix="iconSend"></button->
       </div>
     </div>
 
@@ -177,20 +177,30 @@
 
   <section class="streamer">
 
+    <div class="streamerHeader">
+      
+    </div>
+
       <div class="streamerBody">
-        
+
+        <div class="buttonsGroup">
+          <button- class="buttonStreamer" _prefix="iconBell"></button->
+          <button- class="buttonStreamer" _prefix="iconFavorites"></button->
+          <button- class="buttonStreamer"
+            _prefix="iconSupport" _core="Поддержка"></button->
+          <button- class="buttonStreamer"
+            _prefix="iconSubscribe" _core="Подписка"></button->
+          <button- class="buttonStreamer" _prefix="iconShare"></button->
+          <button- class="buttonStreamer" _prefix="iconDots"></button->
+        </div>
+
+        <div class="streamerInfo">
+          
+        </div>
+
       </div>
 
-      <div class="streamerFooter">
-
-        <button- class="buttonStreamer"
-          _prefix="svgFavorites" _core="В избранное"></button->
-        <button- class="buttonStreamer"
-          _prefix="svgCoin" _core="Донатик"></button->
-        <button- class="buttonStreamer"
-          _prefix="svgFavorites" _core="Подписаться"></button->
-
-      </div>
+      <div class="streamerFooter"> </div>
 
   </section>
 
