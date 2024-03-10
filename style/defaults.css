@@ -1,0 +1,113 @@
+@font-face{
+  font-family:Inter-Regular;
+  src:url(../fonts/Inter-Regular.ttf);}
+
+:root{
+  --navigate-height:60px;
+  --corner-radius:5px;}
+
+/*** base ***/
+html,body{
+  position:relative;
+  margin:0;
+  padding:0;}
+
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+	font-size:16px;
+  font-family:Inter-Regular,Arial,sans-serif;
+  color:rgb(220,220,220);
+  background-color:rgb(18,18,18);
+  -webkit-user-select:none!important;
+  user-select:none!important;}
+
+/*** button ***/
+button-{
+  position:relative;
+  display:inline-flex;
+  overflow:hidden;
+  border:0;
+  border-radius:var(--corner-radius);
+  white-space:nowrap;
+  cursor:pointer;
+  transition:background-color 0.2s;
+  -webkit-user-select:none;
+  user-select:none;}
+
+button- > div{
+  position:relative;
+  height:inherit;}
+
+button- > ._core{flex-grow:1;}
+
+button- svg{
+  position:absolute;
+  pointer-events:none;
+  fill:none;}
+
+button- svg,
+button- span{
+  display:block;
+  transition:color 0.2s,stroke 0.2s;}
+
+button- span{
+  line-height:inherit;}
+
+/*** iframe ***/
+iframe{
+  border:none;}
+
+/*** textarea ***/
+textarea{
+  font-family:Inter-Regular,Arial,sans-serif;
+  font-size:85%;
+  text-transform:none;}
+
+/*** link ***/
+a{text-decoration:none;}
+
+/*** svg ***/
+#svg{display:none;}
+
+svg{
+  stroke-linecap:butt;
+  stroke-linejoin:miter;}
+
+/*** text selection ***/
+::selection{background-color:rgba(255,255,255,0.1);}
+
+/*** scrollbar ***/
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background-color:transparent;}
+::-webkit-scrollbar-thumb{
+  border-radius:5px;
+  background-color:rgb(75,75,75);}
+
+/*** remove bottom space ***/
+textarea{vertical-align:top;}
+
+/*** hide input ***/
+input[type="hidden"]{display:none;}
+
+/*** video ***/
+video{
+  max-width:100%;
+  display:inline-block;
+  vertical-align:baseline;}
+
+/*** remove webkit tap-highlight, outline and padding ***/
+*,
+*:after,
+*:before{
+  -webkit-tap-highlight-color:rgba(0,0,0,0)!important;
+  -webkit-tap-highlight-color:transparent!important;
+  box-sizing:border-box!important;
+  outline:none!important;}
+
+/*** remove mozilla form fields padding ***/
+input::-moz-focus-inner,
+button::-moz-focus-inner{
+  padding:0!important;
+  border:0!important;}

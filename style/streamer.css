@@ -1,0 +1,80 @@
+.streamer{
+  z-index:-1;
+  position:fixed;
+  display:block;
+  overflow-x:hidden;
+  overflow-y:scroll;
+  top:var(--navigate-height);
+  right:340px;
+  height:calc(100% - var(--navigate-height));}
+
+#app.channelsClosed > .streamer{left:78px;}
+#app.channelsOpened > .streamer{left:290px;}
+
+@media (width < 1024px){
+#app.channelsOpened > .streamer{left:78px;}}
+
+.streamerHeader{
+  display:block;
+  width:100%;
+  background-color:rgba(255,255,255,.01);}
+
+.streamerFooter{
+  display:block;
+  width:100%;}
+
+.streamerHeader iframe{
+  aspect-ratio:16/9;
+  width:100%;}
+
+/*** streamer button ***/
+.buttonStreamer{
+  height:36px;
+  line-height:36px;
+  background-color:rgb(40,40,40);}
+
+@media (hover: hover){
+.buttonStreamer:hover{background-color:rgb(45,45,45);}}
+.buttonStreamer:active{background-color:rgb(50,50,50);}
+
+.buttonStreamer ._prefix{
+  width:40px;
+  min-width:40px;}
+
+.buttonStreamer svg{
+  stroke:rgb(230,230,230);
+  width:20px;
+  height:20px;
+  top:50%;
+  left:50%;
+  transform:translate3d(-50%,-50%,0) rotate(0deg);}
+
+.buttonStreamer ._core span{
+  padding-left:0;
+  padding-right:12px;
+  font-size:90%;
+  color:rgb(175,175,175);}
+
+@media (hover: hover){
+.buttonStreamer:hover ._core span{color:rgb(230,230,230);}}
+
+.streamerBody .buttonsGroup{
+  display:flex;
+  flex-wrap:wrap;
+  flex-shrink:0;
+  padding-top:5px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  justify-content:right;
+  width:100%;
+  gap:10px;}
+
+.streamerBody .buttonsGroup button-{
+  min-width:40px;}
+
+@media (width < 1280px){
+#app.channelsOpened .streamerBody .buttonsGroup button- > ._core{display:none;}}
+
+@media (width < 1024px){
+.streamerBody .buttonsGroup button- > ._core{display:none;}}
